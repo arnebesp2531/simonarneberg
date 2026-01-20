@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploring the RGB Color Cube - Simon Arneberg</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@400;600&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="paper-texture"></div>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../../about/index.html">About</a></li>
+            <li><a href="../index.html" class="active">Blog</a></li>
+            <li><a href="../../projects/index.html">Projects</a></li>
+            <li><a href="../../resume/index.html">Resume</a></li>
+            <li><a href="../../music/index.html">Music & Videos</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section class="page active">
+            <div class="page-content">
+                <div class="blog-post-header">
+                    <p class="breadcrumb"><a href="../index.html">← Back to Blog</a></p>
+
+                    <div class="section-header">
+                        <h1>Exploring the RGB Color Cube</h1>
+                        <div class="section-ornament"></div>
+                    </div>
+                    <p class="post-date">January 2026</p>
+                </div>
+
+                <div class="blog-post-content">
+                    <p>
+                        text here
+                    </p>
+
+                    <div class="demo-container">
+                        <div class="color-control-section">
+                            <div class="top-controls">
+                                <div class="vertical-sliders">
+                                    <div class="vertical-slider-group">
+                                        <label for="redSlider">R</label>
+                                        <input type="range" id="redSlider" min="0" max="255" value="128" class="color-slider-vertical red-slider" orient="vertical">
+                                        <span id="redValue">128</span>
+                                    </div>
+
+                                    <div class="vertical-slider-group">
+                                        <label for="greenSlider">G</label>
+                                        <input type="range" id="greenSlider" min="0" max="255" value="128" class="color-slider-vertical green-slider" orient="vertical">
+                                        <span id="greenValue">128</span>
+                                    </div>
+
+                                    <div class="vertical-slider-group">
+                                        <label for="blueSlider">B</label>
+                                        <input type="range" id="blueSlider" min="0" max="255" value="128" class="color-slider-vertical blue-slider" orient="vertical">
+                                        <span id="blueValue">128</span>
+                                    </div>
+                                </div>
+
+                                <div class="color-preview" id="colorPreview">
+                                    <div class="rgb-vector" id="rgbVector">rgb(128, 128, 128)</div>
+                                </div>
+                            </div>
+
+                            <button id="randomizeBtn" class="randomize-btn">Randomize Color</button>
+
+                            <div class="cube-section">
+                                <h3>3D RGB Color Space</h3>
+                                <canvas id="cubeCanvas" width="800" height="600"></canvas>
+                                <p class="cube-instruction">Click and drag to rotate • Hover to see coordinates • Click a point to update sliders</p>
+
+                                <div class="vertex-density-control">
+                                    <label for="vertexDensitySlider">Additional vertices per edge: <span id="vertexDensityValue">0</span></label>
+                                    <input type="range" id="vertexDensitySlider" min="0" max="10" value="0" class="density-slider">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #e0e0e0; font-size: 0.9rem;">
+                        <div style="text-align: left;">
+                            <a href="../data-visualization-principles/index.html" style="color: #6B8FA3; text-decoration: none;">← Previous Post</a>
+                        </div>
+                        <div style="text-align: right; color: #999;">
+                            <span>Next Post →</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Simon Arneberg</p>
+    </footer>
+
+    <script src="../../js/script.js"></script>
+</body>
+</html>
