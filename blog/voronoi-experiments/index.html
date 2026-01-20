@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voronoi Experiments - Simon Arneberg</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@400;600&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="paper-texture"></div>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/blog/" class="active">Projects & Ideas</a></li>
+            <li><a href="/resume/">Resume</a></li>
+            <li><a href="/music/">Music & Videos</a></li>
+            <li><a href="/contact/">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section class="page active">
+            <div class="page-content">
+                <div class="blog-post-header">
+                    <p class="breadcrumb"><a href="/blog/">← Back to Blog</a></p>
+
+                    <div class="section-header">
+                        <h1>Voronoi Experiments</h1>
+                        <div class="section-ornament"></div>
+                    </div>
+                    <p class="post-date">January 2026</p>
+                </div>
+
+                <div class="blog-post-content">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+
+                    <div class="demo-container">
+                        <div class="voronoi-section">
+                            <h3>Interactive Voronoi Diagram</h3>
+                            <canvas id="voronoiCanvas" width="800" height="600"></canvas>
+                            <p class="voronoi-instruction">Click to add points • Right-click to remove points • Click and drag to move points</p>
+
+                            <div class="voronoi-controls">
+                                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                                    <label for="pointCountSlider" style="font-weight: 600;">Number of points:</label>
+                                    <input type="range" id="pointCountSlider" min="0" max="100" value="25" style="flex: 1;">
+                                    <span id="pointCountValue" style="min-width: 3ch; font-weight: 600;">25</span>
+                                </div>
+                                <button id="randomizePointsBtn" class="randomize-btn">Randomize Points</button>
+                                <button id="clearPointsBtn" class="randomize-btn">Clear All</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    </p>
+
+                    <div class="demo-container">
+                        <div class="voronoi-section">
+                            <h3>Can we add movement?</h3>
+                            <canvas id="voronoiCanvas2" width="800" height="600"></canvas>
+
+                            <button id="toggleAnimationBtn" style="width: 100%; padding: 1rem; font-size: 2rem; background: #2c3e50; color: white; border: none; border-radius: 8px; cursor: pointer; margin: 1rem 0; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(44, 62, 80, 0.3);" onmouseover="this.style.background='#34495e'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(44, 62, 80, 0.4)'" onmouseout="this.style.background='#2c3e50'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(44, 62, 80, 0.3)'">▶</button>
+
+                            <div class="voronoi-controls">
+                                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                                    <label for="pointCountSlider2" style="font-weight: 600;">Number of points:</label>
+                                    <input type="range" id="pointCountSlider2" min="0" max="100" value="25" style="flex: 1;">
+                                    <span id="pointCountValue2" style="min-width: 3ch; font-weight: 600;">25</span>
+                                </div>
+                                <button id="randomizePointsBtn2" class="randomize-btn">Randomize Points</button>
+                                <button id="clearPointsBtn2" class="randomize-btn">Clear All</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #e0e0e0; font-size: 0.9rem;">
+                        <div style="text-align: left;">
+                            <a href="../rgb-color-cube/index.html" style="color: #6B8FA3; text-decoration: none;">← Previous Post</a>
+                        </div>
+                        <div style="text-align: right; color: #999;">
+                            <span>Next Post →</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Simon Arneberg</p>
+    </footer>
+
+    <script>
+        const canvas = document.getElementById('voronoiCanvas');
+        const ctx = canvas.getContext('2d');
+        let points = [];
+        let draggedPointIndex = null;
+        let isDragging = false;
+        let availableColors = [];
+        let cursorPreviewPoint = null; // Track cursor position for preview
+
+        // Earthy, muted color palette inspired by natural fabrics
+        const earthyColors = [
+            'hsl(180, 30%, 60%)',  // Light teal
+            'hsl(185, 28%, 58%)',  // Aqua mist
+            'hsl(175, 25%, 62%)',  // Seafoam
+            'hsl(12, 40%, 50%)',   // Rusty terra cotta
+            'hsl(15, 38%, 48%)',   // Clay red
+            'hsl(8, 35%, 52%)',    // Burnt sienna
+            'hsl(48, 35%, 62%)',   // Soft yellow
+            'hsl(45, 38%, 65%)',   // Warm mustard
+            'hsl(42, 32%, 60%)',   // Golden beige
+            'hsl(200, 22%, 52%)',  // Dusty blue
+            'hsl(210, 18%, 48%)',  // Slate blue
+            'hsl(85, 18%, 52%)',   // Olive
+            'hsl(160, 20%, 55%)',  // Muted sage
+            'hsl(25, 25%, 58%)'    // Light terracotta
+        ];
+
+        // Initialize with specified number of random points
+        function initializePoints() {
+            const pointCount = parseInt(document.getElementById('pointCountSlider').value);
+            points = [];
+            availableColors = [...earthyColors];
+            shuffleArray(availableColors);
+
+            for (let i = 0; i < pointCount; i++) {
+                points.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    color: generateRandomColor()
+                });
+            }
+            draw();
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        function generateRandomColor() {
+            // If we've used all colors, reset the available colors
+            if (availableColors.length === 0) {
+                availableColors = [...earthyColors];
+                shuffleArray(availableColors);
+            }
+            // Pop a color from the available colors
+            return availableColors.pop();
+        }
+
+        function distance(x1, y1, x2, y2) {
+            return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Create combined points array including cursor preview if present
+            const allPoints = [...points];
+            if (cursorPreviewPoint) {
+                allPoints.push(cursorPreviewPoint);
+            }
+
+            // Draw Voronoi cells
+            const imageData = ctx.createImageData(canvas.width, canvas.height);
+            const data = imageData.data;
+
+            for (let y = 0; y < canvas.height; y++) {
+                for (let x = 0; x < canvas.width; x++) {
+                    let closestPoint = null;
+                    let minDistance = Infinity;
+
+                    // Find the closest point
+                    for (const point of allPoints) {
+                        const dist = distance(x, y, point.x, point.y);
+                        if (dist < minDistance) {
+                            minDistance = dist;
+                            closestPoint = point;
+                        }
+                    }
+
+                    if (closestPoint) {
+                        const pixelIndex = (y * canvas.width + x) * 4;
+                        const color = closestPoint.color;
+                        const rgb = hslToRgb(color);
+
+                        data[pixelIndex] = rgb.r;
+                        data[pixelIndex + 1] = rgb.g;
+                        data[pixelIndex + 2] = rgb.b;
+                        data[pixelIndex + 3] = 255;
+                    }
+                }
+            }
+
+            ctx.putImageData(imageData, 0, 0);
+
+            // Draw cell boundaries
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+            ctx.lineWidth = 2;
+            for (let y = 0; y < canvas.height - 1; y++) {
+                for (let x = 0; x < canvas.width - 1; x++) {
+                    let closestPoint = null;
+                    let minDistance = Infinity;
+                    for (const point of allPoints) {
+                        const dist = distance(x, y, point.x, point.y);
+                        if (dist < minDistance) {
+                            minDistance = dist;
+                            closestPoint = point;
+                        }
+                    }
+
+                    let closestPointRight = null;
+                    minDistance = Infinity;
+                    for (const point of allPoints) {
+                        const dist = distance(x + 1, y, point.x, point.y);
+                        if (dist < minDistance) {
+                            minDistance = dist;
+                            closestPointRight = point;
+                        }
+                    }
+
+                    let closestPointDown = null;
+                    minDistance = Infinity;
+                    for (const point of allPoints) {
+                        const dist = distance(x, y + 1, point.x, point.y);
+                        if (dist < minDistance) {
+                            minDistance = dist;
+                            closestPointDown = point;
+                        }
+                    }
+
+                    if (closestPoint !== closestPointRight) {
+                        ctx.beginPath();
+                        ctx.moveTo(x + 1, y);
+                        ctx.lineTo(x + 1, y + 1);
+                        ctx.stroke();
+                    }
+
+                    if (closestPoint !== closestPointDown) {
+                        ctx.beginPath();
+                        ctx.moveTo(x, y + 1);
+                        ctx.lineTo(x + 1, y + 1);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            // Draw points
+            points.forEach((point, index) => {
+                ctx.beginPath();
+                ctx.arc(point.x, point.y, 6, 0, Math.PI * 2);
+                ctx.fillStyle = '#2c3e50';
+                ctx.fill();
+                ctx.strokeStyle = 'white';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                // Highlight dragged point
+                if (draggedPointIndex === index && isDragging) {
+                    ctx.beginPath();
+                    ctx.arc(point.x, point.y, 10, 0, Math.PI * 2);
+                    ctx.strokeStyle = 'yellow';
+                    ctx.lineWidth = 3;
+                    ctx.stroke();
+                }
+            });
+        }
+
+        function hslToRgb(hslString) {
+            const match = hslString.match(/hsl\((\d+\.?\d*),\s*(\d+\.?\d*)%,\s*(\d+\.?\d*)%\)/);
+            if (!match) return { r: 128, g: 128, b: 128 };
+
+            let h = parseFloat(match[1]) / 360;
+            let s = parseFloat(match[2]) / 100;
+            let l = parseFloat(match[3]) / 100;
+
+            let r, g, b;
+
+            if (s === 0) {
+                r = g = b = l;
+            } else {
+                const hue2rgb = (p, q, t) => {
+                    if (t < 0) t += 1;
+                    if (t > 1) t -= 1;
+                    if (t < 1/6) return p + (q - p) * 6 * t;
+                    if (t < 1/2) return q;
+                    if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+                    return p;
+                };
+
+                const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+                const p = 2 * l - q;
+                r = hue2rgb(p, q, h + 1/3);
+                g = hue2rgb(p, q, h);
+                b = hue2rgb(p, q, h - 1/3);
+            }
+
+            return {
+                r: Math.round(r * 255),
+                g: Math.round(g * 255),
+                b: Math.round(b * 255)
+            };
+        }
+
+        // Event listeners
+        canvas.addEventListener('mousedown', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Check if clicking on an existing point
+            let closestIndex = -1;
+            let minDistance = 15; // Distance threshold for grabbing a point
+
+            points.forEach((point, index) => {
+                const dist = distance(x, y, point.x, point.y);
+                if (dist < minDistance) {
+                    minDistance = dist;
+                    closestIndex = index;
+                }
+            });
+
+            if (closestIndex !== -1) {
+                // Start dragging the point
+                draggedPointIndex = closestIndex;
+                isDragging = true;
+                canvas.style.cursor = 'grabbing';
+            }
+        });
+
+        canvas.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            if (isDragging && draggedPointIndex !== null) {
+                // Update the dragged point's position
+                points[draggedPointIndex].x = x;
+                points[draggedPointIndex].y = y;
+                cursorPreviewPoint = null; // Hide preview while dragging
+                draw();
+            } else {
+                // Update cursor when hovering over a point
+                let closestIndex = -1;
+                let minDistance = 15;
+
+                points.forEach((point, index) => {
+                    const dist = distance(x, y, point.x, point.y);
+                    if (dist < minDistance) {
+                        minDistance = dist;
+                        closestIndex = index;
+                    }
+                });
+
+                canvas.style.cursor = closestIndex !== -1 ? 'grab' : 'crosshair';
+
+                // Show cursor preview point
+                cursorPreviewPoint = {
+                    x: x,
+                    y: y,
+                    color: 'hsl(0, 0%, 95%)' // Very light gray
+                };
+                draw();
+            }
+        });
+
+        canvas.addEventListener('mouseup', (e) => {
+            if (!isDragging) {
+                // Only add a new point if we weren't dragging
+                const rect = canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                points.push({
+                    x: x,
+                    y: y,
+                    color: generateRandomColor()
+                });
+                updateSliderValue();
+                draw();
+            }
+
+            // Reset dragging state
+            isDragging = false;
+            draggedPointIndex = null;
+            canvas.style.cursor = 'crosshair';
+        });
+
+        canvas.addEventListener('mouseleave', () => {
+            // Stop dragging if mouse leaves canvas
+            isDragging = false;
+            draggedPointIndex = null;
+            cursorPreviewPoint = null;
+            canvas.style.cursor = 'crosshair';
+            draw();
+        });
+
+        canvas.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Find and remove the closest point
+            let closestIndex = -1;
+            let minDistance = 20; // Only remove if within 20 pixels
+
+            points.forEach((point, index) => {
+                const dist = distance(x, y, point.x, point.y);
+                if (dist < minDistance) {
+                    minDistance = dist;
+                    closestIndex = index;
+                }
+            });
+
+            if (closestIndex !== -1) {
+                points.splice(closestIndex, 1);
+                updateSliderValue();
+                draw();
+            }
+        });
+
+        // Slider event listener
+        const slider = document.getElementById('pointCountSlider');
+        const sliderValue = document.getElementById('pointCountValue');
+
+        slider.addEventListener('input', (e) => {
+            const targetCount = parseInt(e.target.value);
+            sliderValue.textContent = targetCount;
+
+            // Adjust points to match slider value
+            const currentCount = points.length;
+
+            if (targetCount > currentCount) {
+                // Add random points
+                const pointsToAdd = targetCount - currentCount;
+                for (let i = 0; i < pointsToAdd; i++) {
+                    points.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height,
+                        color: generateRandomColor()
+                    });
+                }
+            } else if (targetCount < currentCount) {
+                // Remove random points
+                const pointsToRemove = currentCount - targetCount;
+                for (let i = 0; i < pointsToRemove; i++) {
+                    const randomIndex = Math.floor(Math.random() * points.length);
+                    points.splice(randomIndex, 1);
+                }
+            }
+
+            draw();
+        });
+
+        // Helper function to update slider value
+        function updateSliderValue() {
+            const currentCount = points.length;
+            slider.value = currentCount;
+            sliderValue.textContent = currentCount;
+        }
+
+        document.getElementById('randomizePointsBtn').addEventListener('click', () => {
+            initializePoints();
+        });
+
+        document.getElementById('clearPointsBtn').addEventListener('click', () => {
+            points = [];
+            updateSliderValue();
+            draw();
+        });
+
+        // Initialize on load
+        initializePoints();
+
+        // ========== SECOND CANVAS - ANIMATED VORONOI ==========
+        const canvas2 = document.getElementById('voronoiCanvas2');
+        const ctx2 = canvas2.getContext('2d');
+        let points2 = [];
+        let availableColors2 = [];
+        let isAnimating = false;
+        let animationId = null;
+        let cursorPoint = null; // Track cursor position as invisible point
+
+        // Initialize with specified number of random points with velocities
+        function initializePoints2() {
+            const pointCount = parseInt(document.getElementById('pointCountSlider2').value);
+            points2 = [];
+            availableColors2 = [...earthyColors];
+            shuffleArray(availableColors2);
+
+            for (let i = 0; i < pointCount; i++) {
+                points2.push({
+                    x: Math.random() * canvas2.width,
+                    y: Math.random() * canvas2.height,
+                    vx: (Math.random() - 0.5) * 2.1, // Random velocity X, 5% faster
+                    vy: (Math.random() - 0.5) * 2.1, // Random velocity Y, 5% faster
+                    color: generateRandomColor2()
+                });
+            }
+        }
+
+        function generateRandomColor2() {
+            if (availableColors2.length === 0) {
+                availableColors2 = [...earthyColors];
+                shuffleArray(availableColors2);
+            }
+            return availableColors2.pop();
+        }
+
+        function draw2() {
+            ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
+
+            // Create combined points array including cursor if present
+            const allPoints = [...points2];
+            if (cursorPoint) {
+                allPoints.push(cursorPoint);
+            }
+
+            // Draw Voronoi cells
+            const imageData = ctx2.createImageData(canvas2.width, canvas2.height);
+            const data = imageData.data;
+
+            for (let y = 0; y < canvas2.height; y++) {
+                for (let x = 0; x < canvas2.width; x++) {
+                    let closestPoint = null;
+                    let minDistance = Infinity;
+
+                    for (const point of allPoints) {
+                        const dist = distance(x, y, point.x, point.y);
+                        if (dist < minDistance) {
+                            minDistance = dist;
+                            closestPoint = point;
+                        }
+                    }
+
+                    if (closestPoint) {
+                        const pixelIndex = (y * canvas2.width + x) * 4;
+                        const color = closestPoint.color;
+                        const rgb = hslToRgb(color);
+
+                        data[pixelIndex] = rgb.r;
+                        data[pixelIndex + 1] = rgb.g;
+                        data[pixelIndex + 2] = rgb.b;
+                        data[pixelIndex + 3] = 255;
+                    }
+                }
+            }
+
+            ctx2.putImageData(imageData, 0, 0);
+
+            // Draw cell boundaries
+            ctx2.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+            ctx2.lineWidth = 2;
+            for (let y = 0; y < canvas2.height - 1; y++) {
+                for (let x = 0; x < canvas2.width - 1; x++) {
+                    let closestPoint = null;
+                    let minDistance = Infinity;
+                    for (const point of allPoints) {
+                        const dist = distance(x, y, point.x, point.y);
+                        if (dist < minDistance) {
+                            minDistance = dist;
+                            closestPoint = point;
+                        }
+                    }
+
+                    let closestPointRight = null;
+                    minDistance = Infinity;
+                    for (const point of allPoints) {
+                        const dist = distance(x + 1, y, point.x, point.y);
+                        if (dist < minDistance) {
+                            minDistance = dist;
+                            closestPointRight = point;
+                        }
+                    }
+
+                    let closestPointDown = null;
+                    minDistance = Infinity;
+                    for (const point of allPoints) {
+                        const dist = distance(x, y + 1, point.x, point.y);
+                        if (dist < minDistance) {
+                            minDistance = dist;
+                            closestPointDown = point;
+                        }
+                    }
+
+                    if (closestPoint !== closestPointRight) {
+                        ctx2.beginPath();
+                        ctx2.moveTo(x + 1, y);
+                        ctx2.lineTo(x + 1, y + 1);
+                        ctx2.stroke();
+                    }
+
+                    if (closestPoint !== closestPointDown) {
+                        ctx2.beginPath();
+                        ctx2.moveTo(x, y + 1);
+                        ctx2.lineTo(x + 1, y + 1);
+                        ctx2.stroke();
+                    }
+                }
+            }
+
+            // Draw points
+            points2.forEach((point) => {
+                ctx2.beginPath();
+                ctx2.arc(point.x, point.y, 6, 0, Math.PI * 2);
+                ctx2.fillStyle = '#2c3e50';
+                ctx2.fill();
+                ctx2.strokeStyle = 'white';
+                ctx2.lineWidth = 2;
+                ctx2.stroke();
+            });
+        }
+
+        function animate() {
+            if (!isAnimating) return;
+
+            // Update point positions
+            points2.forEach(point => {
+                point.x += point.vx;
+                point.y += point.vy;
+
+                // Bounce off edges
+                if (point.x <= 0 || point.x >= canvas2.width) {
+                    point.vx *= -1;
+                    point.x = Math.max(0, Math.min(canvas2.width, point.x));
+                }
+                if (point.y <= 0 || point.y >= canvas2.height) {
+                    point.vy *= -1;
+                    point.y = Math.max(0, Math.min(canvas2.height, point.y));
+                }
+            });
+
+            draw2();
+            animationId = requestAnimationFrame(animate);
+        }
+
+        // Slider event listener for canvas 2
+        const slider2 = document.getElementById('pointCountSlider2');
+        const sliderValue2 = document.getElementById('pointCountValue2');
+
+        slider2.addEventListener('input', (e) => {
+            const targetCount = parseInt(e.target.value);
+            sliderValue2.textContent = targetCount;
+
+            const currentCount = points2.length;
+
+            if (targetCount > currentCount) {
+                const pointsToAdd = targetCount - currentCount;
+                for (let i = 0; i < pointsToAdd; i++) {
+                    points2.push({
+                        x: Math.random() * canvas2.width,
+                        y: Math.random() * canvas2.height,
+                        vx: (Math.random() - 0.5) * 2.1,
+                        vy: (Math.random() - 0.5) * 2.1,
+                        color: generateRandomColor2()
+                    });
+                }
+            } else if (targetCount < currentCount) {
+                const pointsToRemove = currentCount - targetCount;
+                for (let i = 0; i < pointsToRemove; i++) {
+                    const randomIndex = Math.floor(Math.random() * points2.length);
+                    points2.splice(randomIndex, 1);
+                }
+            }
+
+            if (!isAnimating) {
+                draw2();
+            }
+        });
+
+        function toggleAnimation() {
+            isAnimating = !isAnimating;
+            const btn = document.getElementById('toggleAnimationBtn');
+            btn.textContent = isAnimating ? '❚❚' : '▶';
+            if (isAnimating) {
+                animate();
+            } else if (animationId) {
+                cancelAnimationFrame(animationId);
+            }
+        }
+
+        document.getElementById('toggleAnimationBtn').addEventListener('click', toggleAnimation);
+
+        document.getElementById('randomizePointsBtn2').addEventListener('click', () => {
+            initializePoints2();
+            if (!isAnimating) {
+                draw2();
+            }
+        });
+
+        document.getElementById('clearPointsBtn2').addEventListener('click', () => {
+            points2 = [];
+            slider2.value = 0;
+            sliderValue2.textContent = 0;
+            if (!isAnimating) {
+                draw2();
+            }
+        });
+
+        // Click to toggle animation on canvas 2
+        canvas2.addEventListener('click', () => {
+            toggleAnimation();
+        });
+
+        // Mouse tracking for canvas 2
+        canvas2.addEventListener('mousemove', (e) => {
+            const rect = canvas2.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Create cursor point with a unique color (white/gray) that won't be in the palette
+            cursorPoint = {
+                x: x,
+                y: y,
+                color: 'hsl(0, 0%, 95%)' // Very light gray
+            };
+
+            if (!isAnimating) {
+                draw2();
+            }
+        });
+
+        canvas2.addEventListener('mouseleave', () => {
+            cursorPoint = null;
+            if (!isAnimating) {
+                draw2();
+            }
+        });
+
+        // Initialize second canvas
+        initializePoints2();
+        draw2(); // Draw initial state without starting animation
+    </script>
+</body>
+</html>
