@@ -64,7 +64,7 @@ body {
     background: rgba(227, 232, 237, 0.92);
     backdrop-filter: blur(12px);
     border-bottom: 3px solid var(--ocean);
-    padding: 1.5rem 2rem;
+    padding: 1.25rem 2rem;
     z-index: 100;
     box-shadow: 0 4px 20px var(--shadow);
 }
@@ -79,6 +79,36 @@ body {
 
 .main-nav li {
     position: relative;
+}
+
+.main-nav a.home-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--ocean);
+    color: white;
+    transition: all 0.3s ease;
+    position: relative;
+    top: 0;
+    vertical-align: middle;
+}
+
+.main-nav a.home-icon:hover {
+    background-color: var(--ocean-deep);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.main-nav a.home-icon svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+    fill: white;
 }
 
 .nav-link {
@@ -1596,8 +1626,8 @@ body.home-page .main-nav {
 /* Carousel Annotation */
 .carousel-annotation {
     position: absolute;
-    bottom: 80px;
-    left: -480px;
+    bottom: 50px;
+    left: -200px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -1608,22 +1638,21 @@ body.home-page .main-nav {
 
 .annotation-text {
     font-family: 'Caveat', cursive;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 500;
     color: var(--storm);
     letter-spacing: 0.02em;
-    transform: rotate(-8deg);
+    transform: rotate(-3deg);
     text-align: left;
     line-height: 1.3;
     white-space: nowrap;
 }
 
 .annotation-arrow {
-    width: 200px;
-    height: 80px;
+    width: 120px;
+    height: 40px;
     color: var(--storm);
-    opacity: 0.8;
-    transform: translateY(-5px);
+    opacity: 0.75;
 }
 
 /* Polaroid Carousel */
