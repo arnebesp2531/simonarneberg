@@ -79,10 +79,13 @@
             <div class="hero-left">
                 <div class="hero-intro">
                     <h1 class="hero-title">Simon Arneberg</h1>
-                    <p class="hero-subtitle">Data Engineer · Musician · Creator</p>
+                    <p class="hero-subtitle">Welcome to my site!</p>
                     <p class="hero-welcome">
                         I'm intending this site to be a place where I can share my ideas with the world (i.e. you), while simultaneously improving my technical and creative skillset.
-                        
+                        AI can be many things, and for this website I'm choosing to use it as a tool rather than a crutch. 
+                        All content is written by me (Simon), and all project and music ideas were conceptualized in my brain. 
+                        Claude code was a tremendously helpful tool in the development of this site, and for that I am grateful.
+                    </p>
                     <p class="hero-tagline">I strive to be a person who thinks deeply, creates joyfully, and lives generously.</p>
                 </div>
 
@@ -143,7 +146,7 @@
                         </div>
                         <div class="hero-image polaroid">
                             <img src="assets/images/bike_redwoods.JPG" alt="Simon Arneberg" />
-                            <div class="polaroid-caption">Looking into the heart of a redwood</div>
+                            <div class="polaroid-caption">Pondering a redwood (CA)</div>
                         </div>
                         <div class="hero-image polaroid">
                             <img src="assets/images/bike_straight_face.jpeg" alt="Simon Arneberg" />
@@ -163,11 +166,11 @@
                         </div>
                         <div class="hero-image polaroid">
                             <img src="assets/images/birch_tree_hat.jpeg" alt="Simon Arneberg" />
-                            <div class="polaroid-caption">Birch is in style</div>
+                            <div class="polaroid-caption">"Don't be hasty"</div>
                         </div>
                         <div class="hero-image polaroid">
                             <img src="assets/images/canoe_superior.jpeg" alt="Simon Arneberg" />
-                            <div class="polaroid-caption">Canoeing Lake Superior</div>
+                            <div class="polaroid-caption">Canoeing Lake Superior (WI)</div>
                         </div>
                         <div class="hero-image polaroid">
                             <img src="assets/images/dolomites.jpeg" alt="Simon Arneberg" />
@@ -183,7 +186,7 @@
                         </div>
                         <div class="hero-image polaroid">
                             <img src="assets/images/hike_multnomah.jpeg" alt="Simon Arneberg" />
-                            <div class="polaroid-caption">Multnomah Falls</div>
+                            <div class="polaroid-caption">Multnomah Falls (OR)</div>
                         </div>
                         <div class="hero-image polaroid">
                             <img src="assets/images/honey_drink.jpeg" alt="Simon Arneberg" />
@@ -195,7 +198,7 @@
                         </div>
                         <div class="hero-image polaroid">
                             <img src="assets/images/lake_superior_rocks.jpeg" alt="Simon Arneberg" />
-                            <div class="polaroid-caption">Lake Superior rocks!</div>
+                            <div class="polaroid-caption">Lake Superior's North Shore (MN)</div>
                         </div>
                         <div class="hero-image polaroid">
                             <img src="assets/images/live_performance.JPEG" alt="Simon Arneberg" />
@@ -262,6 +265,7 @@
 
         let currentIndex = 0;
         let autoRotateInterval;
+        let isHovering = false;
         const VISIBLE_STACK_SIZE = 5;
 
         // Fisher-Yates shuffle algorithm to randomize polaroid order
@@ -322,6 +326,10 @@
             // Ensure the polaroid is visible for the slide animation
             topPolaroid.style.display = 'block';
             topPolaroid.style.zIndex = 10;
+
+            // Force a reflow to ensure display change is applied
+            void topPolaroid.offsetWidth;
+
             topPolaroid.style.transition = 'transform 0.8s cubic-bezier(0.2, 0, 0.8, 1), opacity 0.5s ease-out';
 
             // Slide the top polaroid far to the right and fade out (accelerating away)
@@ -332,11 +340,32 @@
             setTimeout(() => {
                 currentIndex = (currentIndex + 1) % polaroids.length;
 
-                // Hide the polaroid that just slid out (it will be repositioned by updateStack if needed)
-                topPolaroid.style.display = 'none';
-
-                // Update all polaroids to new positions with animation
+                // Update all other polaroids to new positions with animation
                 updateStack(true);
+
+                // Animate the slid-out card coming back from the right and fading into the back
+                // Position it far to the right (continuing from where it left)
+                topPolaroid.style.transition = 'none';
+                topPolaroid.style.transform = 'rotate(-8deg) translateX(1000px) translateY(200px)';
+                topPolaroid.style.opacity = '0';
+                topPolaroid.style.zIndex = 0;
+                topPolaroid.style.display = 'block';
+
+                // Force reflow
+                void topPolaroid.offsetWidth;
+
+                // Slide it back toward the deck from the right, fading out as it approaches
+                setTimeout(() => {
+                    topPolaroid.style.transition = 'transform 1.2s cubic-bezier(0.2, 0, 0.2, 1), opacity 1.2s ease-out';
+                    topPolaroid.style.transform = 'rotate(-1deg) translateX(0px) translateY(60px)';
+                    topPolaroid.style.opacity = '0';
+                    topPolaroid.style.filter = 'brightness(0.7) blur(3px)';
+                }, 100);
+
+                // Hide it after the animation completes
+                setTimeout(() => {
+                    topPolaroid.style.display = 'none';
+                }, 1300);
             }, 400);
 
             resetAutoRotate();
@@ -352,6 +381,10 @@
             // Ensure the polaroid is visible for the slide animation
             topPolaroid.style.display = 'block';
             topPolaroid.style.zIndex = 10;
+
+            // Force a reflow to ensure display change is applied
+            void topPolaroid.offsetWidth;
+
             topPolaroid.style.transition = 'transform 0.8s cubic-bezier(0.2, 0, 0.8, 1), opacity 0.5s ease-out';
 
             // Slide the top polaroid far to the right and fade out (accelerating away)
@@ -362,11 +395,32 @@
             setTimeout(() => {
                 currentIndex = index;
 
-                // Hide the polaroid that just slid out
-                topPolaroid.style.display = 'none';
-
-                // Update all polaroids to new positions with animation
+                // Update all other polaroids to new positions with animation
                 updateStack(true);
+
+                // Animate the slid-out card coming back from the right and fading into the back
+                // Position it far to the right (continuing from where it left)
+                topPolaroid.style.transition = 'none';
+                topPolaroid.style.transform = 'rotate(-8deg) translateX(1000px) translateY(200px)';
+                topPolaroid.style.opacity = '0';
+                topPolaroid.style.zIndex = 0;
+                topPolaroid.style.display = 'block';
+
+                // Force reflow
+                void topPolaroid.offsetWidth;
+
+                // Slide it back toward the deck from the right, fading out as it approaches
+                setTimeout(() => {
+                    topPolaroid.style.transition = 'transform 1.2s cubic-bezier(0.2, 0, 0.2, 1), opacity 1.2s ease-out';
+                    topPolaroid.style.transform = 'rotate(-1deg) translateX(0px) translateY(60px)';
+                    topPolaroid.style.opacity = '0';
+                    topPolaroid.style.filter = 'brightness(0.7) blur(3px)';
+                }, 100);
+
+                // Hide it after the animation completes
+                setTimeout(() => {
+                    topPolaroid.style.display = 'none';
+                }, 1300);
             }, 400);
 
             resetAutoRotate();
@@ -378,18 +432,27 @@
 
         function resetAutoRotate() {
             clearInterval(autoRotateInterval);
-            startAutoRotate();
+            // Only restart auto-rotate if user is not hovering
+            if (!isHovering) {
+                startAutoRotate();
+            }
+        }
+
+        function stopAutoRotate() {
+            clearInterval(autoRotateInterval);
         }
 
         // Click on carousel to advance to next photo
         carousel.addEventListener('click', nextSlide);
 
-        // Pause auto-rotate on hover
+        // Pause auto-rotate on hover and prevent it from restarting
         carousel.addEventListener('mouseenter', () => {
-            clearInterval(autoRotateInterval);
+            isHovering = true;
+            stopAutoRotate();
         });
 
         carousel.addEventListener('mouseleave', () => {
+            isHovering = false;
             startAutoRotate();
         });
 
