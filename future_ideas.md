@@ -16,7 +16,9 @@ A running list of ideas for website improvements, blog posts, and other future e
         - Could be a vertical timeline along the side of the page that shows a ton of major events from my life (both personally and projessionally)
         - make it interactive by having a "click to expand" section ? ()
     - Far in the future
-        - 
+        - Make "currently reading" section that integrates with Goodreads API to get the book I'm reading
+        - Make "currently listening to" section that integrates with Spotify API to show my top artist over the past 30 days.
+        - Create a photo directory system
 - [ ] **Blog page**
     - Add tags to blog posts (keep them simple), then have a tag filter at the top of the page (data visualization, random thoughts, geometry, nature mimicry, etc)
     - Add a little blurb about my intent for the blog posts
@@ -79,6 +81,25 @@ A running list of ideas for website improvements, blog posts, and other future e
     - Then type out pi using that font
 - [ ] **"Making My Own Font"** - a font with no crossing over itself
     - Write out the titles of the blog post in the digitized font?
+- [ ] **"Graphing The Effects of Continual Change"** - when is change helpful?
+    - Reference my hand-drawn graph of overlapping effort in change
+    - Digitize this graph? 
+    - Propose a formula or a simple axiom for when change is worth it (and when it will only introduce more churn)? "Arneberg's law" haha
+    - Pain: relate this curve to Dan Ariely's findings in Predictably Irrational
+        - We think we want the "rip the bandaid", but we actually prefer the slower, less intense pain for longer in retrospect
+        - Does this apply here? I feel like I would expect the opposite to actually be best for an organization/employee -- 
+    - Main Takeaway: it's worth it to do it right the first time
+        - No matter how you slice it, changing from solution A to B, then B to C soon thereafter is going to erode trust and build resentment. 
+        - "if you're going to do it, do it right" - me
+        - The time upront to plan end-to-end is your investment towards minimizing this pain/effort curve.
+        - "Choose your pain" - atomic habits maybe ? 
+- [ ] **"Proxy Measures & the Mind"** - My presentation that I gave for InterWorks final interview
+    - Make the slides look pretty, and just write about what I talked about
+        - Proxy measures in the physiological body, and elsewhere
+        - Goodhart's Law - measures and targets
+        - Application
+- [ ] **"Some sort of word game?"** - Some sort of daily Wordle / Strands / linkedin game variant
+    - would need to come up with more ideas for this - there are many potential options that could exist
 
 
 ## Features to Explore
@@ -87,6 +108,13 @@ A running list of ideas for website improvements, blog posts, and other future e
     - Would require hosting on a digitalocean server or equivalent (instead of GitHub Pages for static html, as currenty implemented).
     - would cost more $ to host (unless self-hosted, which would be ureliable)
     - would be good experience 
+    - Create a blog post backend form that I fill out in the UI itself (desktop or mobile)
+        - changes are pushed to the server, and the website updates
+        - would require authentication method ? 
+        - would make the blog easier to maintain (especially if I lost access to Claude)...
+        - would cost more $$ to maintain and host
+        - Would make it so that I could potentially make updates from my phone (e.g. on a bike trip, I just make periodic updates to the blog with photos from my camera roll)
+            - I really like this idea, actually!
 - [ ] Start a mailing list ? 
     - Contact page signup for mailing list... Far in the future, once I have enough that I'd actually want to say (full-time music?)
 - [ ] Featured projects
@@ -96,7 +124,7 @@ A running list of ideas for website improvements, blog posts, and other future e
 
 - [ ] create a fun "404 - page not found " (think chrome dino game, for example)
 - [ ] Display a counter that shows how many unique visitors have accessed the home page. (not sure if possible in static html...)
-- [ ] 
+- [ ] Create a 
 
 ---
 

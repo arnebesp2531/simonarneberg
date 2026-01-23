@@ -801,6 +801,29 @@ a:hover {
     margin-bottom: 2.5rem;
 }
 
+.music-intro ul {
+    list-style: none;
+    text-align: left;
+    max-width: 700px;
+    margin: 1.5rem auto;
+    padding: 0;
+}
+
+.music-intro ul li {
+    position: relative;
+    padding: 0.4rem 0;
+    padding-left: 1.5rem;
+    line-height: 1.5;
+}
+
+.music-intro ul li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    color: var(--ocean);
+    font-size: 0.75rem;
+}
+
 .video-wrapper {
     margin: 3rem 0;
 }

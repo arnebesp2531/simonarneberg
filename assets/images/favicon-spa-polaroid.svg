@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- SPA in polaroid frame -->
+  <rect width="64" height="64" fill="#6b8fa3" rx="8"/>
+  <rect x="8" y="10" width="48" height="44" rx="2" fill="white"/>
+  <rect x="12" y="14" width="40" height="30" fill="#4a6b7c"/>
+  <text x="32" y="36" font-family="Georgia, serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#f0f2f5">SPA</text>
+</svg>
