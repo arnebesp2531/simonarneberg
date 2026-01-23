@@ -82,9 +82,9 @@
                     <p class="hero-subtitle">Welcome to my site!</p>
                     <p class="hero-welcome">
                         I'm intending this site to be a place where I can share my ideas with the world (i.e. you), while simultaneously improving my technical and creative skillset.
-                        AI can be many things, and for this website I'm choosing to use it as a tool rather than a crutch.
-                        All content is written by <a href="/about/">me (Simon)</a>, and all project and music ideas were conceptualized in my own brain.
-                        Claude code was a tremendously helpful tool in the development of this site, and for that I am grateful.
+                        <br><br>All content is written by <a href="/about/">me (Simon)</a>, and all <a href="/blog/">project</a> and <a href="/music/">music</a> ideas were conceptualized in my own brain.
+                        AI can be many things, and for this website I'm choosing to use it as a tool, but not a crutch.
+                        Claude Code was a tremendously helpful tool in bringing my ideas for this site to life.
                     </p>
                     <p class="hero-tagline">I strive to be a person who thinks deeply, creates joyfully, and lives generously.</p>
                 </div>
@@ -130,7 +130,7 @@
                         </div>
                         <div class="hero-image polaroid">
                             <img src="assets/images/Big_Ben_Backflip.png" alt="Simon Arneberg" />
-                            <div class="polaroid-caption">Hanging with Large Benjamin</div>
+                            <div class="polaroid-caption">Large Benjamin</div>
                         </div>
                         <div class="hero-image polaroid">
                             <img src="assets/images/bike_cannon_beach.jpeg" alt="Simon Arneberg" />
@@ -182,7 +182,7 @@
                         </div>
                         <div class="hero-image polaroid">
                             <img src="assets/images/hammock_night_setup.jpeg" alt="Simon Arneberg" />
-                            <div class="polaroid-caption">Setting up camp</div>
+                            <div class="polaroid-caption">Setting up camp (CA)</div>
                         </div>
                         <div class="hero-image polaroid">
                             <img src="assets/images/hike_multnomah.jpeg" alt="Simon Arneberg" />
@@ -194,7 +194,7 @@
                         </div>
                         <div class="hero-image polaroid">
                             <img src="assets/images/hood_to_coast.jpeg" alt="Simon Arneberg" />
-                            <div class="polaroid-caption">Hood to Coast relay</div>
+                            <div class="polaroid-caption">Hood to Coast relay (OR)</div>
                         </div>
                         <div class="hero-image polaroid">
                             <img src="assets/images/lake_superior_rocks.jpeg" alt="Simon Arneberg" />
@@ -257,6 +257,28 @@
                 const page = this.dataset.page;
                 window.location.href = `/${page}/`;
             });
+        });
+
+        // Flip nav cards when hovering over related links
+        const linkCardPairs = [
+            { linkHref: '/about/', cardPage: 'about' },
+            { linkHref: '/blog/', cardPage: 'blog' },
+            { linkHref: '/music/', cardPage: 'music' }
+        ];
+
+        linkCardPairs.forEach(pair => {
+            const link = document.querySelector(`a[href="${pair.linkHref}"]`);
+            const card = document.querySelector(`.nav-card[data-page="${pair.cardPage}"] .nav-card-inner`);
+
+            if (link && card) {
+                link.addEventListener('mouseenter', function() {
+                    card.classList.add('flipped');
+                });
+
+                link.addEventListener('mouseleave', function() {
+                    card.classList.remove('flipped');
+                });
+            }
         });
 
         // Polaroid Carousel Functionality

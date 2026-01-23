@@ -34,7 +34,7 @@ A running list of ideas for website improvements, blog posts, and other future e
 - [ ] **Hidden pages**
     - asdf
 
-## Blog Post Ideas
+## Blog / Project Ideas
 
 - [ ] **"How I built this website using Claude Code"** - Technical overview of how I made this site, and the process I followed
     - detail my intent behind the site - a place to share my ideas with the world, and a chance to grow my technical and creative skills.
@@ -68,6 +68,10 @@ A running list of ideas for website improvements, blog posts, and other future e
         - The user clicks a single button or the animation screen ("Go!"), and then martin begins to cycle through a slow walk cycle. 
         - Based on the average frequency of the clicks in the past ~2 seconds, Martin begins to speed up (or slow down, or maintain pace).
         - When he "speeds up", he is merely switching from 
+- [ ] **"Overtone Series, Explained"** - demonstration of simple harmonics in open string
+    - user "plays" a string by clicking it
+    - have adjustable length strings, and demonstrate 
+
 
 ## Features to Explore
 
@@ -83,7 +87,7 @@ A running list of ideas for website improvements, blog posts, and other future e
 ## Random Ideas
 
 - [ ] create a fun "404 - page not found " (think chrome dino game, for example)
-- [ ] 
+- [ ] Display a counter that shows how many unique visitors have accessed the home page. (not sure if possible in static html...)
 - [ ] 
 
 ---
