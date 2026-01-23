@@ -71,6 +71,14 @@ A running list of ideas for website improvements, blog posts, and other future e
 - [ ] **"Overtone Series, Explained"** - demonstration of simple harmonics in open string
     - user "plays" a string by clicking it
     - have adjustable length strings, and demonstrate 
+- [ ] **"Running the Entire English Alphabet"** - Strave alphabet series, parts I-XXVI
+    - Go through my alphabet running series on Strava
+    - perform some analysis? Heat map? Or simple aggregates?
+- [ ] **"Trapezoidal Numbering System"** - using only 7 (8?) trapezoids
+    - just show my notebook page, then make a digital version. 
+    - Then type out pi using that font
+- [ ] **"Making My Own Font"** - a font with no crossing over itself
+    - Write out the titles of the blog post in the digitized font?
 
 
 ## Features to Explore

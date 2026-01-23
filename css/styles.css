@@ -87,28 +87,37 @@ body {
     justify-content: center;
     padding: 0;
     margin: 0;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background-color: var(--ocean);
+    width: auto;
+    height: auto;
+    border-radius: 4px;
+    background-color: transparent;
     color: white;
     transition: all 0.3s ease;
     position: relative;
     top: 0;
     vertical-align: middle;
+    text-decoration: none;
+    border-bottom: none;
 }
 
 .main-nav a.home-icon:hover {
-    background-color: var(--ocean-deep);
+    background-color: transparent;
     color: white;
     transform: translateY(-2px);
+    border-bottom: none;
 }
 
 .main-nav a.home-icon svg {
     display: block;
-    width: 20px;
-    height: 20px;
-    fill: white;
+    width: 32px;
+    height: 36px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    transition: all 0.3s ease;
+}
+
+.main-nav a.home-icon:hover svg {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    transform: scale(1.1) rotate(-6deg);
 }
 
 .main-nav ul li a:not(.home-icon) {
@@ -1165,17 +1174,17 @@ a:hover {
 
 .contact-card {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(227, 232, 237, 0.8));
-    padding: 3rem;
+    padding: 2rem;
     border: 2px solid var(--border);
     border-radius: 12px;
     box-shadow: 0 6px 20px var(--shadow);
     text-align: center;
-    margin: 3rem 0;
+    margin: 2rem 0;
 }
 
 .contact-icon {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
 }
 
 .contact-card h3 {

@@ -151,8 +151,17 @@
     <nav class="main-nav">
         <ul>
             <li><a href="/" class="home-icon" title="Home">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                <svg viewBox="0 0 32 32" width="32" height="36">
+                    <!-- Polaroid frame background -->
+                    <rect x="0" y="0" width="32" height="32" fill="#4a6b7c" rx="1.5"/>
+                    <!-- Shadow/border for depth -->
+                    <rect x="0" y="0" width="32" height="32" fill="none" stroke="#3d5a68" stroke-width="0.8" rx="1.5"/>
+                    <!-- Photo area -->
+                    <rect x="3" y="3" width="26" height="20" fill="#e3e8ed"/>
+                    <!-- Photo border -->
+                    <rect x="3" y="3" width="26" height="20" fill="none" stroke="#d0d0d0" stroke-width="0.5"/>
+                    <!-- House icon -->
+                    <path d="M16 9l-7 5.5h1.5v5h4v-3.5h3v3.5h4v-5h1.5L16 9z" fill="#2d3f3a"/>
                 </svg>
             </a></li>
             <li><a href="/about/">About</a></li>

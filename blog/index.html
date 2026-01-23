@@ -15,8 +15,17 @@
     <nav class="main-nav">
         <ul>
             <li><a href="/" class="home-icon" title="Home">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                <svg viewBox="0 0 32 32" width="32" height="36">
+                    <!-- Polaroid frame background -->
+                    <rect x="0" y="0" width="32" height="32" fill="#4a6b7c" rx="1.5"/>
+                    <!-- Shadow/border for depth -->
+                    <rect x="0" y="0" width="32" height="32" fill="none" stroke="#3d5a68" stroke-width="0.8" rx="1.5"/>
+                    <!-- Photo area -->
+                    <rect x="3" y="3" width="26" height="20" fill="#e3e8ed"/>
+                    <!-- Photo border -->
+                    <rect x="3" y="3" width="26" height="20" fill="none" stroke="#d0d0d0" stroke-width="0.5"/>
+                    <!-- House icon -->
+                    <path d="M16 9l-7 5.5h1.5v5h4v-3.5h3v3.5h4v-5h1.5L16 9z" fill="#2d3f3a"/>
                 </svg>
             </a></li>
             <li><a href="/about/">About</a></li>
@@ -35,8 +44,12 @@
                     <div class="section-ornament"></div>
                 </div>
 
+                <p style="margin: 1.5rem 0 2rem 0; font-size: 0.95rem; line-height: 1.6; color: #555;">
+                    This is where I will share my thoughts and my projects, both technical and creative. All content is written by me (not AI).
+                </p>
+
                 <a href="/blog/voronoi-experiments/" style="text-decoration: none; color: inherit; display: block;">
-                    <article style="display: flex; gap: 1.5rem; margin-bottom: 1.5rem; padding: 1rem; border: 2px solid transparent; border-radius: 8px; transition: border-color 0.3s ease, box-shadow 0.3s ease; cursor: pointer; min-height: 133px;" onmouseover="this.style.borderColor='#6B8FA3'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)'" onmouseout="this.style.borderColor='transparent'; this.style.boxShadow='none'">
+                    <article style="display: flex; gap: 1.5rem; padding: 2rem 1rem; border-top: 1px solid #ddd; border-left: 2px solid transparent; border-right: 2px solid transparent; border-bottom: 2px solid transparent; border-radius: 8px; transition: border-color 0.3s ease, box-shadow 0.3s ease; cursor: pointer; min-height: 133px;" onmouseover="this.style.borderColor='#6B8FA3'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)'" onmouseout="this.style.borderTopColor='#ddd'; this.style.borderLeftColor='transparent'; this.style.borderRightColor='transparent'; this.style.borderBottomColor='transparent'; this.style.boxShadow='none'">
                         <div style="flex-shrink: 0; width: 200px; height: 133px; background-image: url('../assets/images/voronoi_thumbnail.png'); background-size: cover; background-position: center; border-radius: 4px; align-self: flex-start;"></div>
                         <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center; min-height: 133px;">
                             <div style="display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.25rem;">
@@ -44,35 +57,35 @@
                                 <h3 style="margin: 0; font-size: 1.25rem; font-family: 'Playfair Display', serif;">Voronoi Experiments</h3>
                             </div>
                             <p style="margin: 0.25rem 0; font-size: 0.8rem; color: #999;">January 2026</p>
-                            <p style="margin: 0.5rem 0 0 0; font-size: 0.875rem; line-height: 1.4; color: #666;">Exploring spatial partitioning and organic patterns.</p>
-                        </div>
-                    </article>
-                </a>
-
-                <a href="/blog/data-visualization-principles/" style="text-decoration: none; color: inherit; display: block;">
-                    <article style="display: flex; gap: 1.5rem; margin-bottom: 1.5rem; padding: 1rem; border: 2px solid transparent; border-radius: 8px; transition: border-color 0.3s ease, box-shadow 0.3s ease; cursor: pointer; min-height: 133px;" onmouseover="this.style.borderColor='#6B8FA3'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)'" onmouseout="this.style.borderColor='transparent'; this.style.boxShadow='none'">
-                        <div style="flex-shrink: 0; width: 200px; height: 133px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 4px; align-self: flex-start;"></div>
-                        <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center; min-height: 133px;">
-                            <div style="display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.25rem;">
-                                <span style="font-size: 0.75rem; color: #999; font-weight: 600;">02</span>
-                                <h3 style="margin: 0; font-size: 1.25rem; font-family: 'Playfair Display', serif;">Principles of Effective Data Visualization</h3>
-                            </div>
-                            <p style="margin: 0.25rem 0; font-size: 0.8rem; color: #999;">January 2026</p>
-                            <p style="margin: 0.5rem 0 0 0; font-size: 0.875rem; line-height: 1.4; color: #666;">Key principles that transform raw data into actionable insights.</p>
+                            <p style="margin: 0.5rem 0 0 0; font-size: 0.875rem; line-height: 1.4; color: #666;">What do bubbles, turtles, and giraffes all have in common?</p>
                         </div>
                     </article>
                 </a>
 
                 <a href="/blog/rgb-color-cube/" style="text-decoration: none; color: inherit; display: block;">
-                    <article style="display: flex; gap: 1.5rem; margin-bottom: 1.5rem; padding: 1rem; border: 2px solid transparent; border-radius: 8px; transition: border-color 0.3s ease, box-shadow 0.3s ease; cursor: pointer; min-height: 133px;" onmouseover="this.style.borderColor='#6B8FA3'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)'" onmouseout="this.style.borderColor='transparent'; this.style.boxShadow='none'">
+                    <article style="display: flex; gap: 1.5rem; padding: 2rem 1rem; border-top: 1px solid #ddd; border-left: 2px solid transparent; border-right: 2px solid transparent; border-bottom: 2px solid transparent; border-radius: 8px; transition: border-color 0.3s ease, box-shadow 0.3s ease; cursor: pointer; min-height: 133px;" onmouseover="this.style.borderColor='#6B8FA3'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)'" onmouseout="this.style.borderTopColor='#ddd'; this.style.borderLeftColor='transparent'; this.style.borderRightColor='transparent'; this.style.borderBottomColor='transparent'; this.style.boxShadow='none'">
                         <div style="flex-shrink: 0; width: 200px; height: 133px; background-image: url('../assets/images/color_thumbnail.png'); background-size: cover; background-position: center; border-radius: 4px; align-self: flex-start;"></div>
                         <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center; min-height: 133px;">
                             <div style="display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.25rem;">
-                                <span style="font-size: 0.75rem; color: #999; font-weight: 600;">01</span>
+                                <span style="font-size: 0.75rem; color: #999; font-weight: 600;">02</span>
                                 <h3 style="margin: 0; font-size: 1.25rem; font-family: 'Playfair Display', serif;">Exploring the RGB Color Cube</h3>
                             </div>
                             <p style="margin: 0.25rem 0; font-size: 0.8rem; color: #999;">January 2026</p>
-                            <p style="margin: 0.5rem 0 0 0; font-size: 0.875rem; line-height: 1.4; color: #666;">An interactive 3D visualization of RGB color space.</p>
+                            <p style="margin: 0.5rem 0 0 0; font-size: 0.875rem; line-height: 1.4; color: #666;">Visualizing color on 3 dimensions interactively.</p>
+                        </div>
+                    </article>
+                </a>
+
+                <a href="/blog/making-of-simonarneberg/" style="text-decoration: none; color: inherit; display: block;">
+                    <article style="display: flex; gap: 1.5rem; padding: 2rem 1rem; border-top: 1px solid #ddd; border-left: 2px solid transparent; border-right: 2px solid transparent; border-bottom: 1px solid #ddd; border-radius: 8px; transition: border-color 0.3s ease, box-shadow 0.3s ease; cursor: pointer; min-height: 133px;" onmouseover="this.style.borderColor='#6B8FA3'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)'" onmouseout="this.style.borderTopColor='#ddd'; this.style.borderLeftColor='transparent'; this.style.borderRightColor='transparent'; this.style.borderBottomColor='#ddd'; this.style.boxShadow='none'">
+                        <div style="flex-shrink: 0; width: 200px; height: 133px; background-image: url('../assets/images/blog_home_page_thumbnail.png'); background-size: cover; background-position: center; border-radius: 4px; align-self: flex-start;"></div>
+                        <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center; min-height: 133px;">
+                            <div style="display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.25rem;">
+                                <span style="font-size: 0.75rem; color: #999; font-weight: 600;">01</span>
+                                <h3 style="margin: 0; font-size: 1.25rem; font-family: 'Playfair Display', serif;">The Making of simonarneberg.com</h3>
+                            </div>
+                            <p style="margin: 0.25rem 0; font-size: 0.8rem; color: #999;">January 2026</p>
+                            <p style="margin: 0.5rem 0 0 0; font-size: 0.875rem; line-height: 1.4; color: #666;">The motive, the means, and the opportunity.</p>
                         </div>
                     </article>
                 </a>
