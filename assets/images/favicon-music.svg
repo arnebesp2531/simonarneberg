@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Music note -->
-  <rect width="64" height="64" fill="#f0f2f5" rx="8"/>
-  <ellipse cx="24" cy="46" rx="8" ry="6" fill="#4a6b7c"/>
-  <rect x="32" y="15" width="4" height="31" fill="#4a6b7c"/>
-  <ellipse cx="28" cy="42" rx="8" ry="6" fill="#6b8fa3"/>
-  <rect x="36" y="15" width="4" height="27" fill="#6b8fa3"/>
-  <path d="M 36 15 Q 48 12 48 20 L 48 28 Q 48 24 36 26 Z" fill="#8ba8b7"/>
-</svg>

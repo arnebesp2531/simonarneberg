@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Ultra minimal tree icon -->
-  <rect width="64" height="64" fill="#4a6b7c" rx="8"/>
-  <rect x="30" y="35" width="4" height="15" fill="#f0f2f5"/>
-  <circle cx="32" cy="28" r="12" fill="#f0f2f5"/>
-</svg>

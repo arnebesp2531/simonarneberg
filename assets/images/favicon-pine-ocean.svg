@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Clean pine tree in ocean blue -->
-  <rect width="64" height="64" fill="#f0f2f5" rx="8"/>
-  <rect x="29" y="42" width="6" height="12" fill="#3d4e5a"/>
-  <path d="M 32 12 L 20 28 L 24 28 L 16 38 L 20 38 L 12 48 L 52 48 L 44 38 L 48 38 L 40 28 L 44 28 Z" fill="#4a6b7c"/>
-</svg>

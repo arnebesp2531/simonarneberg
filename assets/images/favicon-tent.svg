@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Camping tent -->
-  <rect width="64" height="64" fill="#f0f2f5" rx="8"/>
-  <path d="M 32 15 L 10 50 L 54 50 Z" fill="#4a6b7c"/>
-  <path d="M 32 15 L 45 50 L 54 50 Z" fill="#6b8fa3"/>
-  <path d="M 32 15 L 32 50" stroke="#3d4e5a" stroke-width="2"/>
-  <path d="M 28 35 L 32 25 L 36 35 L 32 32 Z" fill="#8ba8b7"/>
-  <rect x="10" y="50" width="44" height="3" fill="#d4c5ae"/>
-</svg>
