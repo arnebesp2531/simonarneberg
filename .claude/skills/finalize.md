@@ -135,6 +135,9 @@ Confirm success and show:
 - Number of files changed
 - Confirmation that push succeeded
 
+### 7. Run /cost skill
+Show the user the cost of current session.
+
 ## Important Notes
 
 - **Always get user approval** before committing - never commit without explicit confirmation
@@ -178,3 +181,6 @@ Confirm success and show:
 
 **If unsure about documentation changes:**
 - Err on the side of updating - it's easier to refine later than to remember what changed
+
+
+
