@@ -54,38 +54,68 @@
                     <h2>Well, Here We Are</h2>
                     <p>
                         If you're reading this (which you are), then you already have a pretty good indication of what this website is like. 
-                        I created simonarneberg.com in my free time after being introduced to Claude Code at a work-related workshop, and I was so intrigued by the world of possibilities it opened that I had to try my hand at making a personal website with it.
+                        I created simonarneberg.com in my free time after attending a Claude Code workshop, and I was so intrigued by the world of possibilities it opened that I had to try my hand at making a personal website with it.
                         I don't easily fall into the hype surrounding generative AI tools, but Claude honestly feels like one of the most game-changing tools I've worked with in a long time.
+                        As the barrier to entry got lower and lower, I figured I might as well give it a go and create my own website!
                     </p>
 
                     <h2>Overall Vision</h2>
                     <p>
-                        Detail my intent behind the site - a place to share my ideas with the world, and a chance to grow my technical and creative skills.
-                        Give my honest thoughts about the state of AI -- my skepticism, my hesitancy, and my excitement.
-    
+                        As I wrote on the landing page, I intend this site to be a space for me to share my ideas with the world, and a chance to grow my technical and creative skills in the process.
+                        I'm sure it will change, but I would like to keep this site somewhat up-to-date with the latest developments in my life, both professional and personal.
+                        Some people would say to avoid mixing those worlds, but I try to live an integrated life where I can be my full self across a variety of contexts. 
                     </p>
 
                     <h2>Working With Claude</h2>
                     <p>
-                        All content is written by <a href="/about/">me (Simon)</a>, and all <a href="/blog/">project</a> and <a href="/music/">music</a> ideas were conceptualized in my own brain.
-                        AI can be many things, and for this website I'm choosing to use it as a tool, but not a crutch.
-                        Claude Code was a tremendously helpful tool in bringing my ideas for this site to life.
+                        In my experience, Claude needs a good amount of guidance in order to get the outputs you want.
+                        For this site, I constantly iterated on every tiny detail, from the color/texture of the background to the exact angle of rotation upon hovering over the navigation bar "home" icon (6 degrees, with 1.1x scale-up, if you're curious).
+                        When I think of an addition, I generally try to describe it in as clear language as possible, adding as much context as I can.
+                        Only then, after dumping my brain out, do I prompt Claude to prompt me with any questions or clarifications needed before creating and executing the actual implementation plan. 
+                        And then I iterate until I'm satisfied.
+                        Oftentimes this reveals some detail which I failed to account for previously, but with which Claude may have jumped to some assumption without specific prompting to ask.
                     </p>
                     <p>
-                        Describe my process of working with Claude, how I prompt, Claude skills I used, etc.
-                        Delve deeper into Claude usage statistics (actual cost of API tokens?)?
+                        But enough about Claude!
+                    </p>
+                    <p>
+                        Across the site, all textual content is written by <a href="/about/">me (Simon)</a>, and all <a href="/blog/">project</a> and <a href="/music/">music</a> ideas were conceptualized in my own brain.
+                        AI can be many things, and for this website I'm choosing to use it as a tool, but not a crutch. Perhaps I'll have to write a short blog post detailing my thoughts on the proper place for automation/AI, but that is a task for another day.
+                        
+                    </p>
+                    <h2>My Favorite Feature So Far</h2>
+                    <p>
+                        My wife and I love taking polaroid pictures.
+                        There's something about the limited nature of physical photos that makes them sweet and nostalgic. 
+                        I thought it would be a nice touch for my <a href="/">landing page</a> to have a homey, almost scrapbook vibe to it. 
+                        The pile of polaroids sitting on the desk gets shuffled with each refresh, adding a little variability. 
                     </p>
 
-                    <h2>My Favorite Features So Far</h2>
                     <p>
-                        Show how the site has changed as I continue to update it. 
-                        Talk about the home page, with polaroid carousel (and the home icon for fun).
+                        One feature that took a ton of iteration is the animation of the "flick" movement when a user clicks the stack.
+                        The top photo quickly fades as it accelerates off the page to the right, after which the stack "settles" into its new position.
+                        In order to speed up the performance, I limited the stack to 5 polaroids rendered at a time. 
+                        Because they blur as they are further back in the pile, this nearly gives the illusion of an endless stack.
+                    </p>
+                    <p>
+                        I was so excited when I finally got the polaroid stack functioning properly, and it still brings me joy just to sit and click through my random collection of photos over the years.
+                        I hope it brings the same to you.
                     </p>
 
                     <h2>Hosting This Website</h2>
                     <p>
-                        How I actually built the site, what technical tools/skills I used, how someone else might recreate my process to make their own site.
+                        I purchased simonarneberg.com domain name in early 2025, but it took me a year to actually get around to making the website.
+                        I had some light html/css experience from a web development class in my CS program, but I had to learn a ton in order to get this site up and running on the internet properly. 
+                        If you're interested in mimicking anything I did, here are some of the steps I had to take:
                     </p>
+                    <ol style="padding-left: 2.5rem; margin-left: 1rem;">
+                        <li>Write the code for the website (stored in this <a href="https://github.com/arnebesp2531/simonarneberg" target="_blank" rel="noopener">GitHub repository</a>).</li>
+                        <li>Run locally using Python's built-in http.server to test changes.</li>
+                        <li>Deploy the site via GitHub Pages (free for static sites).</li>
+                        <li>Purchase a custom domain from Name.com</li>
+                        <li>Configure domain to point at GitHub Pages (DNS records and CNAME file).</li>
+                        <li>Whenever any changes are pushed to the main branch, the site updates automatically in less than a minute. Pretty smooth!</li>
+                    </ol>
 
                     <h2>The Future of simonarneberg.com</h2>
                     <p>
@@ -93,6 +123,12 @@
                         In an ideal world, I would have enough content on the backburner to start producing a meaningful project blog post each month or week. But we'll see if that consistency is possible.
                         I do have some future projects in mind that I'd like to create, and I'm also open to hear any ideas that you might have!
                     </p>
+                    <p></p>
+                    <p>But for now, peace out.</p>
+
+                    <div class="signature">
+                        <span class="signature-text">■ S.P.A.</span>
+                    </div>
 
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #e0e0e0; font-size: 0.9rem;">
                         <div style="text-align: left; color: #999;">
