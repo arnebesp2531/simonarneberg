@@ -864,6 +864,396 @@ a:hover {
     font-size: 1.1rem;
 }
 
+/* Media player: visually groups the spotlight and the playlist strip as one unit.
+   Small negative side margins let it extend slightly past .page-content padding. */
+.media-player {
+    background: var(--wave-mist);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1rem;
+    margin: 3rem -1.5rem 4rem;
+    box-shadow: 0 10px 36px var(--shadow);
+    position: relative;
+}
+
+.media-player .spotlight-section {
+    margin: 0 0 1.75rem;
+}
+
+.media-player .video-shelf-section {
+    margin: 0;
+}
+
+/* Spotlight player: video on left, info panel on right */
+.spotlight-section {
+    margin: 3rem 0 4rem;
+}
+
+.spotlight-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.spotlight-header {
+    text-align: center;
+    margin-bottom: 0.85rem;
+}
+
+.spotlight-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--storm);
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+}
+
+.spotlight-video {
+    margin: 0;
+    width: 100%;
+}
+
+.spotlight-caption {
+    text-align: center;
+    margin: 0.85rem auto 0;
+    line-height: 1.55;
+    font-size: 0.92rem;
+    max-width: 780px;
+}
+
+.spotlight-song-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--storm);
+    font-style: normal;
+}
+
+.spotlight-caption-dash {
+    color: var(--driftwood);
+    margin: 0 0.35em;
+}
+
+.spotlight-song-blurb {
+    font-style: italic;
+    color: var(--rock);
+}
+
+@media (max-width: 750px) {
+    .media-player {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .spotlight-header h2 {
+        font-size: 1.25rem;
+    }
+
+    .spotlight-caption {
+        font-size: 0.88rem;
+    }
+}
+
+/* Subsection headings (used by video grid and Listen) */
+.subsection-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--storm);
+    text-align: center;
+    margin: 0 0 1.5rem;
+    position: relative;
+}
+
+.subsection-heading::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--seafoam), transparent);
+    margin: 0.5rem auto 0;
+}
+
+/* Horizontal-scroll video shelf */
+.video-shelf-section {
+    margin: 4rem 0;
+}
+
+.video-shelf-wrapper {
+    position: relative;
+}
+
+.video-shelf {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.5rem 0.25rem 1.25rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--seafoam) transparent;
+}
+
+.video-shelf::-webkit-scrollbar {
+    height: 6px;
+}
+
+.video-shelf::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.video-shelf::-webkit-scrollbar-thumb {
+    background: var(--seafoam);
+    border-radius: 3px;
+}
+
+.video-shelf::-webkit-scrollbar-thumb:hover {
+    background: var(--ocean);
+}
+
+.video-card {
+    flex: 0 0 240px;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Upward-pointing triangle on the card whose thumbnail is currently active,
+   visually anchoring the playlist strip to the spotlight above */
+.video-card:has(.video-card-thumb.active)::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 11px solid var(--seafoam);
+    z-index: 2;
+    filter: drop-shadow(0 -1px 2px rgba(123, 192, 199, 0.5));
+}
+
+.video-card-thumb {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 3px solid var(--ocean);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 0;
+    cursor: pointer;
+    background: var(--storm);
+    box-shadow: 0 6px 18px var(--shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: block;
+    font: inherit;
+    color: inherit;
+}
+
+.video-card-thumb:hover,
+.video-card-thumb:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px var(--shadow-strong);
+    outline: none;
+}
+
+.video-card-thumb:focus-visible {
+    border-color: var(--seafoam);
+}
+
+.video-card-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.video-card-thumb:hover img,
+.video-card-thumb:focus-visible img {
+    transform: scale(1.05);
+}
+
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(253, 251, 247, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(29, 47, 58, 0.45);
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.play-icon svg {
+    width: 22px;
+    height: 22px;
+    fill: var(--ocean);
+    margin-left: 3px;
+    transition: fill 0.25s ease;
+}
+
+.video-card-thumb:hover .play-icon,
+.video-card-thumb:focus-visible .play-icon {
+    transform: translate(-50%, -50%) scale(1.12);
+    background: var(--seafoam);
+}
+
+.video-card-thumb:hover .play-icon svg,
+.video-card-thumb:focus-visible .play-icon svg {
+    fill: var(--storm);
+}
+
+/* Active card: currently in the spotlight */
+.video-card-thumb.active {
+    border-color: var(--seafoam);
+    box-shadow:
+        0 6px 18px var(--shadow),
+        0 0 0 2px rgba(123, 192, 199, 0.45),
+        0 0 24px rgba(123, 192, 199, 0.4);
+    cursor: default;
+}
+
+.video-card-thumb.active .play-icon {
+    background: var(--seafoam);
+}
+
+.video-card-thumb.active .play-icon svg {
+    fill: var(--storm);
+}
+
+.video-card-thumb.active:hover,
+.video-card-thumb.active:focus-visible {
+    transform: none;
+}
+
+.video-card-thumb.active:hover img,
+.video-card-thumb.active:focus-visible img {
+    transform: none;
+}
+
+.video-card-caption {
+    margin-top: 0.7rem;
+    text-align: center;
+    padding: 0 0.25rem;
+}
+
+.video-card-caption h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--storm);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.release-date {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.85rem;
+    color: var(--driftwood);
+    margin: 0.2rem 0 0;
+    letter-spacing: 0.05em;
+}
+
+/* Edge fade on the right hints at horizontal scrollability */
+.video-shelf-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -2px;
+    width: 60px;
+    height: calc(100% - 1.25rem);
+    pointer-events: none;
+    background: linear-gradient(-90deg, var(--misty-white) 10%, rgba(245, 241, 232, 0) 100%);
+    z-index: 1;
+    border-radius: 0 10px 10px 0;
+}
+
+@media (max-width: 700px) {
+    .video-card {
+        flex: 0 0 200px;
+    }
+
+    .video-shelf-wrapper::after {
+        width: 36px;
+    }
+}
+
+/* Listen / Spotify section: text block on the left, embedded player on the right */
+.listen-section {
+    margin: 4rem 0 2rem;
+}
+
+.listen-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 40%;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.listen-text {
+    text-align: left;
+}
+
+.listen-text .subsection-heading {
+    text-align: left;
+    margin: 0 0 1rem;
+}
+
+.listen-text .subsection-heading::after {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.spotify-embed {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px var(--shadow);
+    margin: 0;
+}
+
+.spotify-embed iframe {
+    display: block;
+    border-radius: 12px;
+}
+
+.streaming-note {
+    font-size: 1rem;
+    color: var(--rock);
+    margin: 0;
+    line-height: 1.7;
+}
+
+.listen-text .streaming-note {
+    text-align: left;
+}
+
+@media (max-width: 750px) {
+    .listen-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .listen-text .subsection-heading,
+    .listen-text .streaming-note {
+        text-align: center;
+    }
+
+    .listen-text .subsection-heading::after {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 /* Demo Page Styles */
 .demo-container {
     max-width: 900px;

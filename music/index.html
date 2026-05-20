@@ -47,40 +47,184 @@
 
                 <div class="music-intro">
                     <p class="intro-text">
-                        I like to write and record songs for fun! 
+                        I like to write and record original songs for fun. My artist name is <strong>Simon Paul Arneberg</strong>
+                        (ask me how I came up with that one) &mdash; you can find me on any streaming platform.
                     </p>
-                    <p class="intro-text">
-                        This page is where I will highlight some of my favorite musical creations, as well as provide lyrics and more info on some tracks. 
-                        My artist name is <strong>Simon Paul Arneberg</strong> (ask me how I came up with that one), and you can find my music on any streaming platform.
-                    </p>
-                    <p class="intro-text">
-                        I am hoping for this page of the site to be a central hub for all of my music-related things:
-                    </p>
-                    <ul class="intro-text">
-                        <li>A list of "featured" content (newest releases/videos, favorite lyric lines)</li>
-                        <li>All Songs/albums (embedded Spotify players ?)</li>
-                        <li>Music videos (embedded Youtube videos)</li>
-                        <li>Lyrics Books (all lyrics for all songs)</li>
-                        <li>Sheet music for piano songs?</li>
-                        <li>Write-ups about motivations behind songs, certain meanings, etc</li>
-                        <li>Show all future releases, projects, or performances ?</li>
-                    </ul>
                 </div>
 
-                <div class="video-wrapper">
-                    <div class="video-container">
-                        <iframe
-                            src="https://www.youtube-nocookie.com/embed/_gSfb3_W1V8"
-                            title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
+                <!-- Media player: spotlight + playlist strip, visually unified -->
+                <div class="media-player">
+                <!-- Spotlight player: static section title above, song title + blurb caption below -->
+                <div class="spotlight-section">
+                    <div class="spotlight-layout">
+                        <header class="spotlight-header">
+                            <h2>Music Videos</h2>
+                        </header>
+                        <div class="video-wrapper spotlight-video">
+                            <div class="video-container">
+                                <iframe id="spotlight-iframe"
+                                        src="https://www.youtube-nocookie.com/embed/_gSfb3_W1V8"
+                                        title="Figure It Out &mdash; Simon Paul Arneberg"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+                        <p class="spotlight-caption">
+                            <span class="spotlight-song-title" id="spotlight-title">Figure It Out</span>
+                            <span class="spotlight-caption-dash">&mdash;</span>
+                            <span class="spotlight-song-blurb" id="spotlight-blurb">Fun fact: I drew every single frame in this animation by hand on a laptop touchpad using free Gimp software, then imported it into iMovie one frame at a time. One of the more tedious things I've ever done, but I love the end product!</span>
+                        </p>
                     </div>
                 </div>
 
-                <div class="music-links">
-                    <p>🎧 Find my music on <a href="https://open.spotify.com/artist/76RcZz6arHNuv3v1zhYL7K" target="_blank">Spotify</a> and other streaming platforms.</p>
+                <!-- Playlist strip: click a thumbnail to load it into the spotlight -->
+                <div class="video-shelf-section">
+                    <div class="video-shelf-wrapper">
+                        <div class="video-shelf" role="list">
+                            <article class="video-card" role="listitem">
+                                <button class="video-card-thumb active" type="button"
+                                        aria-current="true"
+                                        data-video-id="_gSfb3_W1V8"
+                                        data-title="Figure It Out"
+                                        data-year="2025"
+                                        data-blurb="Fun fact: I drew every single frame in this animation by hand on a laptop touchpad using free Gimp software, then imported it into iMovie one frame at a time. One of the more tedious things I've ever done, but I love the end product!"
+                                        aria-label="Play 'Figure It Out' in the spotlight">
+                                    <img src="https://i.ytimg.com/vi/_gSfb3_W1V8/hqdefault.jpg"
+                                         alt="" loading="lazy">
+                                    <span class="play-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </span>
+                                </button>
+                                <div class="video-card-caption">
+                                    <h3>Figure It Out</h3>
+                                    <p class="release-date">2025</p>
+                                </div>
+                            </article>
+
+                            <article class="video-card" role="listitem">
+                                <button class="video-card-thumb" type="button"
+                                        data-video-id="y7JCJs4BEng"
+                                        data-title="Rather Be Here With You"
+                                        data-year="2021"
+                                        data-blurb="Made this video and song while stuck at my parent's house for a bit. Viewers beware my greasy, long hair... I wasn't hanging out with anyone for a while, so it was fine, right?"
+                                        aria-label="Play 'Rather Be Here With You' in the spotlight">
+                                    <img src="https://i.ytimg.com/vi/y7JCJs4BEng/hqdefault.jpg"
+                                         alt="" loading="lazy">
+                                    <span class="play-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </span>
+                                </button>
+                                <div class="video-card-caption">
+                                    <h3>Rather Be Here With You</h3>
+                                    <p class="release-date">2021</p>
+                                </div>
+                            </article>
+
+                            <article class="video-card" role="listitem">
+                                <button class="video-card-thumb" type="button"
+                                        data-video-id="6_8KqagZgRs"
+                                        data-title="Honey Be Still"
+                                        data-year="2024"
+                                        data-blurb="Song made for my new wife, and all the stressors that a new job and season of life can bring."
+                                        aria-label="Play 'Honey Be Still' in the spotlight">
+                                    <img src="https://i.ytimg.com/vi/6_8KqagZgRs/hqdefault.jpg"
+                                         alt="" loading="lazy">
+                                    <span class="play-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </span>
+                                </button>
+                                <div class="video-card-caption">
+                                    <h3>Honey Be Still</h3>
+                                    <p class="release-date">2024</p>
+                                </div>
+                            </article>
+
+                            <article class="video-card" role="listitem">
+                                <button class="video-card-thumb" type="button"
+                                        data-video-id="_HSha8INDis"
+                                        data-title="Another Summer Day"
+                                        data-year="2020"
+                                        data-blurb="Made this song in one weekend at the beginning of lockdown. It was the first song I ever put out there! Morning, Mid-day, Evening."
+                                        aria-label="Play 'Another Summer Day' in the spotlight">
+                                    <img src="https://i.ytimg.com/vi/_HSha8INDis/hqdefault.jpg"
+                                         alt="" loading="lazy">
+                                    <span class="play-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </span>
+                                </button>
+                                <div class="video-card-caption">
+                                    <h3>Another Summer Day</h3>
+                                    <p class="release-date">2020</p>
+                                </div>
+                            </article>
+
+                            <article class="video-card" role="listitem">
+                                <button class="video-card-thumb" type="button"
+                                        data-video-id="igBzcz89JM4"
+                                        data-title="This Place"
+                                        data-year="2023"
+                                        data-blurb="A song about a room. Made this video with friends for an NPR Tiny Desk Concert."
+                                        aria-label="Play 'This Place' in the spotlight">
+                                    <img src="https://i.ytimg.com/vi/igBzcz89JM4/hqdefault.jpg"
+                                         alt="" loading="lazy">
+                                    <span class="play-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </span>
+                                </button>
+                                <div class="video-card-caption">
+                                    <h3>This Place</h3>
+                                    <p class="release-date">2023</p>
+                                </div>
+                            </article>
+
+                            <article class="video-card" role="listitem">
+                                <button class="video-card-thumb" type="button"
+                                        data-video-id="wm5G1FYOJ1c"
+                                        data-title="Autumn"
+                                        data-year="2022"
+                                        data-blurb="Made this one right as I was reflecting on wrapping up my college career. Seasons are an excellent reminder of change, because even good things need to end to allow for new things to enter."
+                                        aria-label="Play 'Autumn' in the spotlight">
+                                    <img src="https://i.ytimg.com/vi/wm5G1FYOJ1c/hqdefault.jpg"
+                                         alt="" loading="lazy">
+                                    <span class="play-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </span>
+                                </button>
+                                <div class="video-card-caption">
+                                    <h3>Autumn</h3>
+                                    <p class="release-date">2022</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                </div><!-- /.media-player -->
+
+                <!-- Listen on Spotify: text block on the left, embedded player on the right -->
+                <div class="listen-section">
+                    <div class="listen-layout">
+                        <div class="listen-text">
+                            <h2 class="subsection-heading">Full Catalog</h2>
+                            <p class="streaming-note">
+                                Also available on <a href="https://open.spotify.com/artist/76RcZz6arHNuv3v1zhYL7K" target="_blank">Spotify</a>,
+                                Apple Music, YouTube Music, Amazon Music, and other streaming platforms.
+                            </p>
+                        </div>
+                        <div class="spotify-embed">
+                            <iframe
+                                data-testid="embed-iframe"
+                                src="https://open.spotify.com/embed/playlist/1wfFL2Sj8HuJmrWfFrUGIW?utm_source=generator"
+                                width="100%"
+                                height="600"
+                                frameborder="0"
+                                allowfullscreen
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -89,5 +233,37 @@
     <footer class="site-footer">
         <p>&copy; 2026 Simon Arneberg</p>
     </footer>
+
+    <script>
+        (function () {
+            var iframe = document.getElementById('spotlight-iframe');
+            var titleEl = document.getElementById('spotlight-title');
+            var blurbEl = document.getElementById('spotlight-blurb');
+            var buttons = document.querySelectorAll('.video-card-thumb');
+
+            buttons.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    if (btn.classList.contains('active')) return;
+
+                    var id = btn.dataset.videoId;
+                    var title = btn.dataset.title;
+                    var blurb = btn.dataset.blurb;
+
+                    iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1';
+                    iframe.title = title + ' — Simon Paul Arneberg';
+
+                    titleEl.textContent = title;
+                    blurbEl.textContent = blurb;
+
+                    buttons.forEach(function (b) {
+                        b.classList.remove('active');
+                        b.removeAttribute('aria-current');
+                    });
+                    btn.classList.add('active');
+                    btn.setAttribute('aria-current', 'true');
+                });
+            });
+        })();
+    </script>
 </body>
 </html>

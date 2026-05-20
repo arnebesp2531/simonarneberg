@@ -28,6 +28,15 @@ A running list of ideas for website improvements, blog posts, and other future e
     - Make the thumbnail photos into gifs?
     - Far in the future
         - show the number of comments / thumbs up for each article
+- [ ] **Music page**
+    - Long-term vision: central hub for all music-related things
+        - "Featured" content section (newest releases/videos, favorite lyric lines)
+        - All songs/albums (embedded Spotify players)
+        - Music videos (embedded YouTube videos)
+        - Lyrics books (all lyrics for all songs)
+        - Sheet music for piano songs?
+        - Write-ups about motivations behind songs, certain meanings, etc.
+        - All future releases, projects, or performances
 - [ ] **Resume page**
     - Either make it match my actual resume, or replace the entire page with the interactive professional timeline (see About, above)
     - Ideally, it contains more information than I could fit on a single-page resume, and with a lot more of my humanity/voice shown. Written in a more candid and detailed style.
