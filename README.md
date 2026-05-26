@@ -38,9 +38,8 @@ This is a static HTML/CSS/JavaScript website built without frameworks or build p
 ├── js/script.js                  # Minimal JavaScript (rarely used)
 ├── assets/
 │   ├── images/                   # All images + favicon
-│   ├── pdfs/                     # PDF documents
+│   ├── pdfs/                     # PDF documents (including resume)
 │   └── polaroid-carousel/        # 31 photos for home carousel
-├── generate_resume.py            # Python script to generate PDF resume
 └── CLAUDE.md                     # Instructions for Claude Code
 ```
 
@@ -102,11 +101,9 @@ All colors are defined as CSS custom properties in [css/styles.css](css/styles.c
 3. Update relative paths for CSS, favicon, and assets (use `../../`)
 4. Add blog card to [blog/index.html](blog/index.html)
 
-**Generating Resume PDF**:
-```bash
-python generate_resume.py
-```
-Outputs `Simon_Arneberg_Resume.pdf` with the same Oregon Coast styling as the website.
+**Updating the Resume PDF**:
+1. Drop the new PDF into `assets/pdfs/`
+2. Update the link in [resume/index.html](resume/index.html) to point to the new filename
 
 ## Deployment
 

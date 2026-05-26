@@ -676,6 +676,109 @@ a:hover {
 }
 
 /* Resume Styles */
+.resume-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.resume-item-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.resume-item-text h4 {
+    margin-bottom: 0.5rem;
+}
+
+.resume-item-text .resume-meta {
+    margin-bottom: 0;
+}
+
+.resume-logo {
+    flex-shrink: 0;
+    width: auto;
+    height: 50px;
+    max-width: 110px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+@media (max-width: 600px) {
+    .resume-item-header {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .resume-logo {
+        height: 40px;
+        max-width: 90px;
+    }
+}
+
+.resume-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0;
+}
+
+.resume-bullets li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.65;
+    color: var(--storm);
+}
+
+.resume-bullets li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65rem;
+    width: 6px;
+    height: 6px;
+    background: var(--ocean);
+    border-radius: 50%;
+}
+
+.resume-bullets li strong {
+    color: var(--ocean-deep);
+    font-weight: 700;
+}
+
+.resume-sub-meta {
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--sand);
+}
+
+.resume-dates {
+    display: inline-block;
+    color: var(--rock);
+    font-weight: 500;
+    font-style: italic;
+    margin-left: 0.25rem;
+}
+
+.skills-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.skill-category-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ocean-deep);
+    margin: 0 0 0.75rem;
+}
+
 .pdf-download-link {
     display: inline-block;
     padding: 0.8rem 2rem;

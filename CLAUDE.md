@@ -125,10 +125,9 @@ Google Fonts (loaded in every page):
 - Reference with correct relative path for page depth
 - SVG preferred for icons; optimize file sizes for web
 
-### Python Resume Generator
-- Run `python generate_resume.py` → outputs `Simon_Arneberg_Resume.pdf`
-- Uses ReportLab library + Oregon Coast color palette
-- Keep resume.py in sync with website content
+### Updating the Resume PDF
+- Drop the new PDF into `assets/pdfs/`
+- Update the link in [resume/index.html](resume/index.html) to point to the new filename
 
 ## Content Philosophy
 
