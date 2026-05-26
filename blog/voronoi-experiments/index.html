@@ -34,6 +34,19 @@
             <li><a href="/music/">Music</a></li>
             <li><a href="/resume/">Resume</a></li>
             <li><a href="/contact/">Contact</a></li>
+            <li class="nav-toggle-item">
+                <button type="button" class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <line x1="3" y1="12" x2="21" y2="12"/>
+                        <line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                    <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                    </svg>
+                </button>
+            </li>
         </ul>
     </nav>
 
@@ -343,10 +356,21 @@
         }
 
         // Event listeners
-        canvas.addEventListener('mousedown', (e) => {
+        // Convert a pointer event to canvas-internal coordinates, accounting
+        // for CSS scaling (canvas may be displayed smaller than its intrinsic
+        // 800x600 on mobile).
+        function pointerToCanvas(e) {
             const rect = canvas.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+            const scaleX = canvas.width / rect.width;
+            const scaleY = canvas.height / rect.height;
+            return {
+                x: (e.clientX - rect.left) * scaleX,
+                y: (e.clientY - rect.top) * scaleY
+            };
+        }
+
+        canvas.addEventListener('mousedown', (e) => {
+            const { x, y } = pointerToCanvas(e);
 
             // Check if clicking on an existing point
             let closestIndex = -1;
@@ -369,9 +393,7 @@
         });
 
         canvas.addEventListener('mousemove', (e) => {
-            const rect = canvas.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+            const { x, y } = pointerToCanvas(e);
 
             if (isDragging && draggedPointIndex !== null) {
                 // Update the dragged point's position
@@ -407,9 +429,7 @@
         canvas.addEventListener('mouseup', (e) => {
             if (!isDragging) {
                 // Only add a new point if we weren't dragging
-                const rect = canvas.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
+                const { x, y } = pointerToCanvas(e);
 
                 points.push({
                     x: x,
@@ -437,9 +457,7 @@
 
         canvas.addEventListener('contextmenu', (e) => {
             e.preventDefault();
-            const rect = canvas.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+            const { x, y } = pointerToCanvas(e);
 
             // Find and remove the closest point
             let closestIndex = -1;
@@ -746,8 +764,10 @@
         // Mouse tracking for canvas 2
         canvas2.addEventListener('mousemove', (e) => {
             const rect = canvas2.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+            const scaleX = canvas2.width / rect.width;
+            const scaleY = canvas2.height / rect.height;
+            const x = (e.clientX - rect.left) * scaleX;
+            const y = (e.clientY - rect.top) * scaleY;
 
             // Create cursor point with a unique color (white/gray) that won't be in the palette
             cursorPoint = {
@@ -772,5 +792,7 @@
         initializePoints2();
         draw2(); // Draw initial state without starting animation
     </script>
+
+    <script src="../../js/nav.js"></script>
 </body>
 </html>

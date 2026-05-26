@@ -1734,7 +1734,8 @@ a:hover {
     margin: 0;
 }
 
-#voronoiCanvas {
+#voronoiCanvas,
+#voronoiCanvas2 {
     max-width: 100%;
     height: auto;
     border: 2px solid var(--ocean);
@@ -2075,6 +2076,26 @@ a:hover {
 
 .post-nav-back:hover {
     text-decoration: underline;
+}
+
+/* Mobile tweaks for the blog-post prev/next nav strips */
+@media (max-width: 600px) {
+    .post-nav.post-nav-top {
+        margin-top: -0.8rem;
+        padding-top: 0.75rem;
+        padding-bottom: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Match the bottom nav's button sizing to the top one on mobile */
+    .post-nav {
+        font-size: 0.8rem;
+    }
+
+    .post-nav .post-nav-link {
+        padding: 0.3rem 0.7rem;
+        border-radius: 4px;
+    }
 }
 
 /* Footer */
@@ -2679,5 +2700,369 @@ body.home-page .main-nav {
 
     .hero-image img {
         max-width: 300px;
+    }
+}
+
+/* ============================================
+   Blog listing cards
+   ============================================ */
+.blog-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.blog-card {
+    display: flex;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    border-top: 1px solid #ddd;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+    border-radius: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    min-height: 133px;
+}
+
+.blog-card.is-last {
+    border-bottom: 1px solid #ddd;
+}
+
+.blog-card-link:hover .blog-card {
+    border-color: #6B8FA3;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.blog-card-thumb {
+    flex-shrink: 0;
+    width: 200px;
+    height: 133px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+    align-self: flex-start;
+}
+
+.blog-card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 133px;
+}
+
+.blog-card-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 0.25rem;
+}
+
+.blog-card-number {
+    font-size: 0.75rem;
+    color: #999;
+    font-weight: 600;
+}
+
+.blog-card-title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.blog-card-date {
+    margin: 0.25rem 0;
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.blog-card-desc {
+    margin: 0.5rem 0 0 0;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: #666;
+}
+
+/* On mobile, restack as: title on top, thumbnail in the middle, date + description below.
+   display: contents on the body wrapper promotes heading/date/desc to direct flex children
+   of the card so we can `order` them around the thumbnail without restructuring the HTML. */
+@media (max-width: 600px) {
+    .blog-card {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1.5rem 0.5rem;
+        min-height: 0;
+    }
+
+    .blog-card-body {
+        display: contents;
+    }
+
+    .blog-card-heading {
+        order: 1;
+        flex-wrap: wrap;
+        margin-bottom: 0.25rem;
+    }
+
+    .blog-card-thumb {
+        order: 2;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3 / 2;
+        margin: 0.25rem 0 0.5rem;
+    }
+
+    .blog-card-date {
+        order: 3;
+    }
+
+    .blog-card-desc {
+        order: 4;
+    }
+
+    .blog-card-title {
+        font-size: 1.15rem;
+    }
+}
+
+/* ============================================
+   Hamburger / collapsible mobile nav
+   ============================================ */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: 2px solid var(--ocean);
+    border-radius: 6px;
+    color: var(--ocean);
+    cursor: pointer;
+    padding: 0.45rem 0.6rem;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav-toggle:hover,
+.nav-toggle:focus-visible {
+    background: var(--ocean);
+    color: white;
+    outline: none;
+}
+
+.nav-toggle svg {
+    width: 22px;
+    height: 22px;
+    display: block;
+}
+
+.nav-toggle .icon-close {
+    display: none;
+}
+
+.main-nav.is-open .nav-toggle .icon-open {
+    display: none;
+}
+
+.main-nav.is-open .nav-toggle .icon-close {
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .main-nav {
+        padding: 0.75rem 1rem;
+    }
+
+    .main-nav ul {
+        gap: 0;
+        padding-inline-start: 0;
+        padding-left: 0;
+        margin: 0;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        width: 100%;
+    }
+
+    /* Keep the home icon visible in the corner */
+    .main-nav ul li:first-child {
+        flex-shrink: 0;
+    }
+
+    /* Hide every link except the home icon by default */
+    .main-nav ul li:not(:first-child) {
+        display: none;
+        width: 100%;
+    }
+
+    /* Toggle li sits at the far right, regardless of other flex items */
+    .main-nav ul li.nav-toggle-item {
+        display: flex;
+        flex-shrink: 0;
+        margin-left: auto;
+        width: auto;
+    }
+
+    .nav-toggle {
+        display: inline-flex;
+    }
+
+    /* Open state: every link visible, stacked vertically below the top row */
+    .main-nav.is-open ul {
+        flex-wrap: wrap;
+    }
+
+    .main-nav.is-open ul li:not(:first-child):not(.nav-toggle-item) {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem 0;
+        border-top: 1px solid var(--border);
+        margin-top: 0.5rem;
+    }
+
+    .main-nav.is-open ul li:not(:first-child):not(.nav-toggle-item):first-of-type {
+        margin-top: 0.75rem;
+    }
+
+    .main-nav.is-open ul li:not(:first-child):not(.nav-toggle-item) a {
+        display: inline-block;
+        padding: 0.5rem 0;
+    }
+}
+
+/* ============================================
+   Home page nav cards: disable flip on touch devices
+   ============================================ */
+@media (hover: none) {
+    .nav-card {
+        cursor: pointer;
+        height: 70px;
+    }
+
+    .nav-card:hover .nav-card-inner,
+    .nav-card-inner.flipped {
+        transform: none;
+    }
+
+    .nav-card-back {
+        display: none;
+    }
+
+    .nav-card-front {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.97), rgba(227, 232, 237, 0.92));
+    }
+}
+
+/* ============================================
+   Tighten horizontal padding on very small screens
+   ============================================ */
+@media (max-width: 480px) {
+    .container {
+        padding: 1.5rem 0.75rem;
+    }
+
+    .page-content {
+        padding: 1.75rem 1.1rem;
+    }
+}
+
+/* ============================================
+   RGB color cube demo: compact layout on mobile
+   ============================================ */
+@media (max-width: 600px) {
+    .color-control-section {
+        padding: 1rem;
+        gap: 1.25rem;
+    }
+
+    /* Stack the slider trio above the color preview instead of side-by-side */
+    .top-controls {
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    .vertical-sliders {
+        gap: 1.25rem;
+    }
+
+    .vertical-slider-group {
+        gap: 0.35rem;
+    }
+
+    .vertical-slider-group label {
+        font-size: 1rem;
+    }
+
+    .vertical-slider-group span {
+        font-size: 0.85rem;
+        min-width: 32px;
+    }
+
+    .color-slider-vertical {
+        height: 130px;
+    }
+
+    .color-preview {
+        min-width: 0;
+        width: 100%;
+        height: 140px;
+        border-width: 3px;
+    }
+
+    .rgb-vector {
+        font-size: 1.3rem;
+        padding: 0.5rem;
+    }
+
+    .randomize-btn {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.75rem;
+    }
+
+    .cube-section {
+        padding-top: 1.25rem;
+    }
+
+    .cube-section h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Belt + suspenders: ensure the 3D cube canvas never overflows its parent
+       regardless of the canvas's intrinsic 800x600 size. */
+    #cubeCanvas {
+        max-width: 100%;
+    }
+
+    .cube-instruction {
+        font-size: 0.85rem;
+    }
+
+    .vertex-density-control {
+        margin-top: 1.25rem;
+    }
+
+    .vertex-density-control label {
+        font-size: 0.9rem;
+    }
+}
+
+/* ============================================
+   Voronoi demo: tighter padding on mobile
+   ============================================ */
+@media (max-width: 600px) {
+    .voronoi-section {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .voronoi-section h3 {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    .voronoi-instruction {
+        font-size: 0.8rem;
     }
 }

@@ -34,6 +34,19 @@
             <li><a href="/music/">Music</a></li>
             <li><a href="/resume/">Resume</a></li>
             <li><a href="/contact/">Contact</a></li>
+            <li class="nav-toggle-item">
+                <button type="button" class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <line x1="3" y1="12" x2="21" y2="12"/>
+                        <line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                    <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                    </svg>
+                </button>
+            </li>
         </ul>
     </nav>
 
@@ -49,44 +62,44 @@
                     An assortment of thoughts and my projects, both technical and creative. I hope you find something interesting!
                 </p>
 
-                <a href="/blog/voronoi-experiments/" style="text-decoration: none; color: inherit; display: block;">
-                    <article style="display: flex; gap: 1.5rem; padding: 2rem 1rem; border-top: 1px solid #ddd; border-left: 2px solid transparent; border-right: 2px solid transparent; border-bottom: 2px solid transparent; border-radius: 8px; transition: border-color 0.3s ease, box-shadow 0.3s ease; cursor: pointer; min-height: 133px;" onmouseover="this.style.borderColor='#6B8FA3'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)'" onmouseout="this.style.borderTopColor='#ddd'; this.style.borderLeftColor='transparent'; this.style.borderRightColor='transparent'; this.style.borderBottomColor='transparent'; this.style.boxShadow='none'">
-                        <div style="flex-shrink: 0; width: 200px; height: 133px; background-image: url('../assets/images/voronoi_thumbnail.png'); background-size: cover; background-position: center; border-radius: 4px; align-self: flex-start;"></div>
-                        <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center; min-height: 133px;">
-                            <div style="display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.25rem;">
-                                <span style="font-size: 0.75rem; color: #999; font-weight: 600;">03</span>
-                                <h3 style="margin: 0; font-size: 1.25rem; font-family: 'Playfair Display', serif;">Voronoi Experiments</h3>
+                <a href="/blog/voronoi-experiments/" class="blog-card-link">
+                    <article class="blog-card">
+                        <div class="blog-card-thumb" style="background-image: url('../assets/images/voronoi_thumbnail.png');"></div>
+                        <div class="blog-card-body">
+                            <div class="blog-card-heading">
+                                <span class="blog-card-number">03</span>
+                                <h3 class="blog-card-title">Voronoi Experiments</h3>
                             </div>
-                            <p style="margin: 0.25rem 0; font-size: 0.8rem; color: #999;">March 2026</p>
-                            <p style="margin: 0.5rem 0 0 0; font-size: 0.875rem; line-height: 1.4; color: #666;">What do bubbles, turtles, and giraffes all have in common? This shape.</p>
+                            <p class="blog-card-date">March 2026</p>
+                            <p class="blog-card-desc">What do bubbles, turtles, and giraffes all have in common? This shape.</p>
                         </div>
                     </article>
                 </a>
 
-                <a href="/blog/rgb-color-cube/" style="text-decoration: none; color: inherit; display: block;">
-                    <article style="display: flex; gap: 1.5rem; padding: 2rem 1rem; border-top: 1px solid #ddd; border-left: 2px solid transparent; border-right: 2px solid transparent; border-bottom: 2px solid transparent; border-radius: 8px; transition: border-color 0.3s ease, box-shadow 0.3s ease; cursor: pointer; min-height: 133px;" onmouseover="this.style.borderColor='#6B8FA3'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)'" onmouseout="this.style.borderTopColor='#ddd'; this.style.borderLeftColor='transparent'; this.style.borderRightColor='transparent'; this.style.borderBottomColor='transparent'; this.style.boxShadow='none'">
-                        <div style="flex-shrink: 0; width: 200px; height: 133px; background-image: url('../assets/images/color_thumbnail.png'); background-size: cover; background-position: center; border-radius: 4px; align-self: flex-start;"></div>
-                        <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center; min-height: 133px;">
-                            <div style="display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.25rem;">
-                                <span style="font-size: 0.75rem; color: #999; font-weight: 600;">02</span>
-                                <h3 style="margin: 0; font-size: 1.25rem; font-family: 'Playfair Display', serif;">Exploring the RGB Color Cube</h3>
+                <a href="/blog/rgb-color-cube/" class="blog-card-link">
+                    <article class="blog-card">
+                        <div class="blog-card-thumb" style="background-image: url('../assets/images/color_thumbnail.png');"></div>
+                        <div class="blog-card-body">
+                            <div class="blog-card-heading">
+                                <span class="blog-card-number">02</span>
+                                <h3 class="blog-card-title">Exploring the RGB Color Cube</h3>
                             </div>
-                            <p style="margin: 0.25rem 0; font-size: 0.8rem; color: #999;">February 2026</p>
-                            <p style="margin: 0.5rem 0 0 0; font-size: 0.875rem; line-height: 1.4; color: #666;">What if each primary color was mapped onto a physical dimension? Visualizing color on 3 dimensions interactively.</p>
+                            <p class="blog-card-date">February 2026</p>
+                            <p class="blog-card-desc">What if each primary color was mapped onto a physical dimension? Visualizing color on 3 dimensions interactively.</p>
                         </div>
                     </article>
                 </a>
 
-                <a href="/blog/making-of-simonarneberg/" style="text-decoration: none; color: inherit; display: block;">
-                    <article style="display: flex; gap: 1.5rem; padding: 2rem 1rem; border-top: 1px solid #ddd; border-left: 2px solid transparent; border-right: 2px solid transparent; border-bottom: 1px solid #ddd; border-radius: 8px; transition: border-color 0.3s ease, box-shadow 0.3s ease; cursor: pointer; min-height: 133px;" onmouseover="this.style.borderColor='#6B8FA3'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)'" onmouseout="this.style.borderTopColor='#ddd'; this.style.borderLeftColor='transparent'; this.style.borderRightColor='transparent'; this.style.borderBottomColor='#ddd'; this.style.boxShadow='none'">
-                        <div style="flex-shrink: 0; width: 200px; height: 133px; background-image: url('../assets/images/blog_home_page_thumbnail.png'); background-size: cover; background-position: center; border-radius: 4px; align-self: flex-start;"></div>
-                        <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center; min-height: 133px;">
-                            <div style="display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.25rem;">
-                                <span style="font-size: 0.75rem; color: #999; font-weight: 600;">01</span>
-                                <h3 style="margin: 0; font-size: 1.25rem; font-family: 'Playfair Display', serif;">The Making of simonarneberg.com</h3>
+                <a href="/blog/making-of-simonarneberg/" class="blog-card-link">
+                    <article class="blog-card is-last">
+                        <div class="blog-card-thumb" style="background-image: url('../assets/images/blog_home_page_thumbnail.png');"></div>
+                        <div class="blog-card-body">
+                            <div class="blog-card-heading">
+                                <span class="blog-card-number">01</span>
+                                <h3 class="blog-card-title">The Making of simonarneberg.com</h3>
                             </div>
-                            <p style="margin: 0.25rem 0; font-size: 0.8rem; color: #999;">January 2026</p>
-                            <p style="margin: 0.5rem 0 0 0; font-size: 0.875rem; line-height: 1.4; color: #666;">The motive, the means, and the opportunity. Guilty as charged.</p>
+                            <p class="blog-card-date">January 2026</p>
+                            <p class="blog-card-desc">The motive, the means, and the opportunity. Guilty as charged.</p>
                         </div>
                     </article>
                 </a>
@@ -97,5 +110,6 @@
     <footer class="site-footer">
         <p>&copy; 2026 Simon Arneberg</p>
     </footer>
+    <script src="../js/nav.js"></script>
 </body>
 </html>

@@ -1,0 +1,12 @@
+# Node tooling — not used by this static site, but here as a guard
+# against accidental installs ending up in the repo
+node_modules/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
