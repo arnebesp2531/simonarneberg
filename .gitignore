@@ -2,6 +2,10 @@
 # against accidental installs ending up in the repo
 node_modules/
 
+# Headless-browser screenshots from visual verification (see CLAUDE.md)
+screenshots/
+*.screenshot.png
+
 # OS junk
 .DS_Store
 Thumbs.db

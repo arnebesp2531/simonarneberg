@@ -119,6 +119,8 @@ Google Fonts (loaded in every page):
 - Edit [css/styles.css](css/styles.css) - single source of truth
 - Changes apply site-wide immediately
 - Use existing color variables for consistency
+- **Verify visually before claiming it works** - see [Visual Verification](#visual-verification-headless-browser).
+  Check 375 / 768 / 1440px rather than reasoning about the CSS alone.
 
 ### Adding Images
 - Place in `assets/images/`
@@ -128,6 +130,71 @@ Google Fonts (loaded in every page):
 ### Updating the Resume PDF
 - Drop the new PDF into `assets/pdfs/`
 - Update the link in [resume/index.html](resume/index.html) to point to the new filename
+
+## Visual Verification (headless browser)
+
+Claude can load this site in a headless browser and actually **see** it — screenshots, console
+errors, failed requests. Use this instead of guessing whether a CSS or layout change worked.
+Simon should not have to paste screenshots.
+
+**Use it for:** any CSS change (especially responsive breakpoints), logo/image alignment,
+verifying relative paths resolve (console 404s catch the #1 failure mode in this repo),
+and checking the interactive bits — home page card flips, polaroid carousel, stained-glass canvas.
+
+### Step 1: serve the site (always required)
+
+```powershell
+npx serve . --listen 4321
+```
+
+Run in the background and leave it up. **Do not use `file://`** — nav links and 404.html use
+absolute paths (`/about/`, `/css/styles.css`) which only resolve over HTTP.
+
+### Step 2: drive the browser — two routes
+
+**Preferred: Playwright MCP.** Keeps one browser session alive across turns, so Claude can
+click, scroll, re-measure, and re-screenshot without relaunching. Manages its own browser
+version. Register once per machine (not yet done as of 2026-07-31 — check `claude mcp list`):
+
+```powershell
+claude mcp add playwright --scope user -- npx @playwright/mcp@latest
+```
+
+Prefer `browser_snapshot` (accessibility tree) for finding and interacting with elements — it's
+cheaper and more precise than pixels. Take real screenshots only for genuinely visual questions:
+spacing, alignment, "does this look broken."
+
+**Fallback: standalone Playwright script.** Works with no MCP registered. Write a script to the
+scratchpad dir, `npm install playwright` **there**, run it, then Read the PNG.
+
+```js
+import { chromium } from 'playwright';
+const [url, outDir, width = '1440'] = process.argv.slice(2);
+const browser = await chromium.launch();
+const page = await browser.newPage({ viewport: { width: Number(width), height: 900 } });
+const problems = [];
+page.on('console', m => { if (m.type() === 'error') problems.push(`console: ${m.text()}`); });
+page.on('requestfailed', r => problems.push(`failed: ${r.url()}`));
+page.on('response', r => { if (r.status() >= 400) problems.push(`${r.status()}: ${r.url()}`); });
+await page.goto(url, { waitUntil: 'networkidle' });
+await page.screenshot({ path: `${outDir}/shot-${width}.png`, fullPage: true });
+await browser.close();
+console.log(problems.length ? problems.join('\n') : 'no console errors, no failed requests');
+```
+
+### Gotchas
+
+- **Never `npm install` inside this directory.** It's Box-synced; `node_modules` would trigger a
+  sync storm across thousands of files. Install into the scratchpad or a helper dir outside Box.
+  (`node_modules/` is gitignored as a second line of defense.)
+- **Install `chromium`, not the `chrome` channel.** `npx playwright install chrome` fails because
+  Simon's real Chrome is already present. Use `npx playwright install chromium`.
+- **Build numbers must match the Playwright version.** Each release pins a specific chromium build
+  (1.62.1 → build 1234). A stale cache gives "Executable doesn't exist" — fix with
+  `npx playwright install chromium` from the dir where that version is installed.
+- Browsers live in `%LOCALAPPDATA%\ms-playwright` — outside Box, shared across projects,
+  downloaded once.
+- Standard viewports to check: **375** (mobile), **768** (tablet), **1440** (desktop).
 
 ## Content Philosophy
 

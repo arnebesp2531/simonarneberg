@@ -16,6 +16,11 @@
     --shadow-strong: rgba(29, 47, 58, 0.35);
     --border: rgba(107, 143, 163, 0.25);
     --wave-mist: rgba(139, 168, 183, 0.08);
+
+    /* Brand colors, used only for the resume timeline's trail segments */
+    --brand-uwec: #2c3c88;
+    --brand-hpe: #01a982;
+    --brand-interworks: #6352f0;
 }
 
 * {
@@ -675,100 +680,10 @@ a:hover {
     box-shadow: 0 2px 8px rgba(74, 107, 124, 0.35);
 }
 
-/* Resume Styles */
-.resume-item-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1.5rem;
-    margin-bottom: 0.75rem;
-}
-
-.resume-item-text {
-    flex: 1;
-    min-width: 0;
-}
-
-.resume-item-text h4 {
-    margin-bottom: 0.5rem;
-}
-
-.resume-item-text .resume-meta {
-    margin-bottom: 0;
-}
-
-.resume-logo {
-    flex-shrink: 0;
-    width: auto;
-    height: 50px;
-    max-width: 110px;
-    object-fit: contain;
-    border-radius: 4px;
-}
-
-@media (max-width: 600px) {
-    .resume-item-header {
-        flex-direction: column-reverse;
-        align-items: flex-start;
-        gap: 0.75rem;
-    }
-
-    .resume-logo {
-        height: 40px;
-        max-width: 90px;
-    }
-}
-
-.resume-bullets {
-    list-style: none;
-    padding: 0;
-    margin: 0.5rem 0 0;
-}
-
-.resume-bullets li {
-    position: relative;
-    padding-left: 1.25rem;
-    margin-bottom: 0.6rem;
-    line-height: 1.65;
-    color: var(--storm);
-}
-
-.resume-bullets li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.65rem;
-    width: 6px;
-    height: 6px;
-    background: var(--ocean);
-    border-radius: 50%;
-}
-
-.resume-bullets li strong {
-    color: var(--ocean-deep);
-    font-weight: 700;
-}
-
-.resume-sub-meta {
-    margin-top: 1.25rem;
-    padding-top: 1rem;
-    border-top: 1px dashed var(--sand);
-}
-
-.resume-dates {
-    display: inline-block;
-    color: var(--rock);
-    font-weight: 500;
-    font-style: italic;
-    margin-left: 0.25rem;
-}
-
-.skills-categories {
-    display: flex;
-    flex-direction: column;
-    gap: 1.75rem;
-}
-
+/* Resume Styles
+   The stacked resume layout was replaced by the trail map (see RESUME TRAIL MAP
+   at the end of this file). What survives here is reused by the trail's
+   skills panel: .skill-category-title, .pdf-download-link, .skills-grid, .skill-badge. */
 .skill-category-title {
     font-family: 'Source Sans 3', sans-serif;
     font-size: 1rem;
@@ -799,78 +714,6 @@ a:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(107, 143, 163, 0.5);
     color: white !important;
-}
-
-.resume-section {
-    margin-bottom: 3.5rem;
-}
-
-.resume-section:last-child {
-    margin-bottom: 0;
-}
-
-.section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    color: var(--ocean);
-    margin-bottom: 2rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 3px solid var(--sand);
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.title-icon {
-    font-size: 1.5rem;
-}
-
-.resume-item {
-    position: relative;
-    margin-bottom: 2.5rem;
-    padding-left: 2.5rem;
-}
-
-.timeline-dot {
-    position: absolute;
-    left: 0;
-    top: 0.5rem;
-    width: 16px;
-    height: 16px;
-    background: var(--ocean);
-    border: 3px solid var(--misty-white);
-    border-radius: 50%;
-    box-shadow: 0 0 0 2px var(--ocean);
-}
-
-.resume-item::before {
-    content: '';
-    position: absolute;
-    left: 7px;
-    top: 1.5rem;
-    bottom: -1.5rem;
-    width: 2px;
-    background: var(--sand);
-}
-
-.resume-item:last-child::before {
-    display: none;
-}
-
-.resume-item h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    color: var(--storm);
-    margin-bottom: 0.5rem;
-    font-weight: 700;
-}
-
-.resume-meta {
-    font-size: 0.95rem;
-    color: var(--ocean-deep);
-    font-style: italic;
-    font-weight: 600;
-    margin-bottom: 1rem;
 }
 
 .skills-grid {
@@ -3064,5 +2907,1145 @@ body.home-page .main-nav {
 
     .voronoi-instruction {
         font-size: 0.8rem;
+    }
+}
+
+/* ============================================================
+   RESUME TRAIL MAP
+   Interactive horizontal timeline on /resume/.
+   Falls back to a vertical list at <=768px.
+   ============================================================ */
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ---------- intro block ---------- */
+/* .container sets min-height: calc(100vh - 140px) so a short page still fills the
+   screen. The resume stacks several containers, so that rule has to be switched off
+   here or each one opens a screen-tall hole. */
+.trail-intro,
+.trail-vertical-wrap,
+.trail-glance-wrap,
+.trail-skills-wrap {
+    min-height: 0;
+}
+
+/* Kept tight so the whole timeline fits on a short screen right below the title. */
+.trail-intro {
+    padding: 3rem 2rem 1.25rem;
+}
+
+.trail-intro .section-header {
+    margin-bottom: 0;
+}
+
+/* On desktop this wrapper holds the (hidden) mobile list and must collapse entirely. */
+.trail-vertical-wrap {
+    padding: 0;
+}
+
+/* Sits at the bottom of the page, after the skills panel. */
+.trail-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2.25rem;
+}
+
+.trail-jump {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 0.75rem 1.75rem;
+    color: var(--ocean-deep);
+    background: transparent;
+    border: 2px solid var(--ocean);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.trail-jump:hover {
+    transform: translateY(-3px);
+    background: var(--wave-mist);
+    box-shadow: 0 6px 18px rgba(107, 143, 163, 0.28);
+}
+
+/* ---------- where things stand (below the map) ---------- */
+.trail-glance-wrap {
+    padding: 1rem 2rem 0;
+}
+
+.trail-glance {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1.25rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1.5rem 1.75rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(227, 232, 237, 0.55));
+    border: 2px solid var(--border);
+    border-left: 5px solid var(--ocean);
+    border-radius: 10px;
+    box-shadow: 0 6px 20px var(--shadow);
+}
+
+.glance-item dt {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--driftwood);
+    margin-bottom: 0.2rem;
+}
+
+.glance-item dd {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.45;
+    color: var(--storm);
+}
+
+/* ---------- filter chips ---------- */
+.trail-filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+}
+
+.trail-filters-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--rock);
+    margin-right: 0.25rem;
+}
+
+.trail-chip {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.4rem 1.1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    border: 2px solid var(--ocean);
+    background: transparent;
+    color: var(--ocean-deep);
+    opacity: 0.5;
+    transition: all 0.25s ease;
+}
+
+.trail-chip:hover {
+    opacity: 0.85;
+}
+
+.trail-chip.is-on {
+    background: linear-gradient(135deg, var(--seafoam), var(--ocean));
+    border-color: transparent;
+    color: #fff;
+    opacity: 1;
+    box-shadow: 0 3px 10px rgba(107, 143, 163, 0.35);
+}
+
+/* ---------- full-bleed stage ---------- */
+.trail-full {
+    position: relative;
+    z-index: 2;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding: 0.25rem 0 1.5rem;
+}
+
+.trail-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem 0.5rem;
+}
+
+/* Plain-language directions above the trail; stays put while you pan. */
+.trail-hint {
+    max-width: 640px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--storm);
+    text-align: center;
+    margin: 0;
+}
+
+/* compact variant of the jump button when it sits in the map toolbar */
+.trail-toolbar .trail-jump {
+    font-size: 0.82rem;
+    padding: 0.4rem 1.15rem;
+}
+
+.trail-viewport {
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+    /* Stops a sideways swipe past either end from triggering the browser's
+       back/forward navigation gesture. */
+    overscroll-behavior-x: contain;
+    cursor: grab;
+    border-top: 2px solid var(--border);
+    border-bottom: 2px solid var(--border);
+    background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.72) 0%,
+        rgba(227, 232, 237, 0.5) 55%,
+        rgba(212, 197, 174, 0.45) 100%);
+    box-shadow: inset 0 12px 24px -14px var(--shadow), inset 0 -12px 24px -14px var(--shadow);
+    scrollbar-width: thin;
+    scrollbar-color: var(--seafoam) transparent;
+}
+
+.trail-viewport:focus-visible {
+    outline: 3px solid var(--ocean);
+    outline-offset: -3px;
+}
+
+.trail-viewport.is-grabbing {
+    cursor: grabbing;
+}
+
+.trail-viewport::-webkit-scrollbar {
+    height: 8px;
+}
+
+.trail-viewport::-webkit-scrollbar-thumb {
+    background: var(--seafoam);
+    border-radius: 4px;
+}
+
+.trail-canvas {
+    position: relative;
+    height: var(--trail-h, 640px);
+}
+
+/* parallax backdrops */
+.trail-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    will-change: background-position;
+}
+
+.trail-headlands {
+    background:
+        radial-gradient(ellipse 900px 220px at 12% 32%, rgba(45, 63, 58, 0.10), transparent 70%),
+        radial-gradient(ellipse 1200px 260px at 58% 26%, rgba(61, 78, 90, 0.09), transparent 72%),
+        radial-gradient(ellipse 800px 200px at 92% 34%, rgba(45, 63, 58, 0.08), transparent 70%);
+}
+
+.trail-fogbank {
+    background:
+        radial-gradient(ellipse 700px 120px at 30% 62%, rgba(255, 255, 255, 0.55), transparent 70%),
+        radial-gradient(ellipse 900px 140px at 75% 70%, rgba(255, 255, 255, 0.45), transparent 72%);
+}
+
+.trail-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.trail-ridge {
+    fill: rgba(107, 143, 163, 0.10);
+}
+
+.trail-gridline {
+    stroke: var(--sand);
+    stroke-width: 1;
+    stroke-dasharray: 2 9;
+    opacity: 0.7;
+}
+
+.trail-route-shadow {
+    fill: none;
+    stroke: var(--shadow);
+    stroke-width: 12;
+    stroke-linecap: round;
+    transform: translateY(4px);
+}
+
+.trail-route {
+    fill: none;
+    stroke: var(--driftwood);
+    stroke-width: 9;
+    stroke-linecap: round;
+}
+
+.trail-span--uwec       { --span-color: var(--brand-uwec); }
+.trail-span--hpe        { --span-color: var(--brand-hpe); }
+.trail-span--interworks { --span-color: var(--brand-interworks); }
+
+.trail-span {
+    fill: none;
+    stroke: var(--span-color, var(--ocean-deep));
+    stroke-width: 9;
+    stroke-linecap: round;
+}
+
+.trail-span-arrow {
+    fill: var(--span-color, var(--ocean-deep));
+}
+
+.trail-route-dash {
+    fill: none;
+    stroke: var(--misty-white);
+    stroke-width: 2;
+    stroke-dasharray: 10 14;
+    stroke-linecap: round;
+    opacity: 0.85;
+}
+
+/* year ruler */
+.trail-years {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.trail-year {
+    position: absolute;
+    top: 12px;
+    transform: translateX(-50%);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    color: var(--driftwood);
+}
+
+/* ---------- waypoint markers ---------- */
+/* The marker layer covers the whole canvas, so let clicks fall through its empty
+   space to the polaroids underneath; only the markers themselves catch them. */
+.trail-markers {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.wp {
+    pointer-events: auto;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    font-family: inherit;
+    transition: opacity 0.3s ease;
+}
+
+.wp-dot {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--misty-white);
+    border: 3px solid var(--ocean-deep);
+    box-shadow: 0 4px 12px var(--shadow-strong);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+}
+
+.wp-dot svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: var(--ocean-deep);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.22s ease;
+}
+
+.wp--approx .wp-dot {
+    border-style: dashed;
+}
+
+/* Every job, past and present, is filled blue (plus anything marked `filled`);
+   everything else stays white. */
+.wp--filled .wp-dot {
+    background: linear-gradient(135deg, var(--ocean), var(--ocean-deep));
+}
+
+.wp--filled .wp-dot svg {
+    stroke: #fff;
+}
+
+/* The current job keeps its halo so "now" still stands out. */
+.wp--current .wp-dot {
+    box-shadow: 0 0 0 5px rgba(107, 143, 163, 0.25), 0 4px 14px var(--shadow-strong);
+}
+
+.wp:hover .wp-dot,
+.wp:focus-visible .wp-dot,
+.wp.is-active .wp-dot {
+    transform: scale(1.18);
+    box-shadow: 0 0 0 6px rgba(107, 143, 163, 0.22), 0 8px 20px var(--shadow-strong);
+}
+
+.wp:focus-visible {
+    outline: none;
+}
+
+.wp:focus-visible .wp-dot {
+    outline: 3px solid var(--ocean);
+    outline-offset: 3px;
+}
+
+/* Minor notes: the little personal details. Deliberately quiet: a small hollow
+   dot on the road and a small line of text below it, out of the way of the stop
+   labels above. Not interactive. */
+.wp-minor {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.wp-minor-dot {
+    display: block;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: var(--misty-white);
+    border: 2px solid var(--driftwood);
+    box-shadow: 0 1px 4px var(--shadow);
+}
+
+.wp-minor-note {
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 8px);
+    transform: translateX(-50%);
+    width: 120px;
+    text-align: center;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.75rem;
+    line-height: 1.3;
+    color: var(--rock);
+}
+
+.wp-minor.is-dimmed {
+    opacity: 0.16;
+}
+
+/* the label hanging off each marker */
+.wp-flag {
+    position: absolute;
+    left: 50%;
+    width: 170px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+/* Certifications sit closer together (CERT_GAP in the script), so their labels
+   are narrower to keep clear of each other. */
+.wp--cert .wp-flag { width: 148px; }
+
+.wp--above .wp-flag { bottom: calc(100% + 14px); }
+.wp--below .wp-flag { top: calc(100% + 14px); }
+
+.wp-flag::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 1px;
+    height: 12px;
+    background: var(--driftwood);
+}
+
+.wp--above .wp-flag::after { top: 100%; }
+.wp--below .wp-flag::after { bottom: 100%; }
+
+.wp-flag-date {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--rock);
+}
+
+.wp-flag-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--storm);
+}
+
+.wp-flag-org {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    color: var(--ocean-deep);
+    line-height: 1.3;
+}
+
+.wp-flag-note {
+    font-family: 'Caveat', cursive;
+    font-size: 1.05rem;
+    color: var(--driftwood);
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.wp:hover .wp-flag-note,
+.wp:focus-visible .wp-flag-note,
+.wp.is-active .wp-flag-note {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.wp.is-dimmed,
+.pl.is-dimmed {
+    opacity: 0.16;
+    pointer-events: none;
+}
+
+/* ---------- polaroids ---------- */
+.trail-media {
+    position: absolute;
+    inset: 0;
+}
+
+.pl {
+    position: absolute;
+    width: 132px;
+    margin: 0;
+    padding: 8px 8px 4px;
+    background: #fdfdfb;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 6px 16px var(--shadow);
+    transform: rotate(var(--tilt, -3deg));
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+.trail-media .pl {
+    cursor: pointer;
+}
+
+.pl:hover {
+    transform: rotate(0deg) scale(1.06);
+    box-shadow: 0 12px 26px var(--shadow-strong);
+    z-index: 5;
+}
+
+.pl-tape {
+    position: absolute;
+    top: -9px;
+    left: 50%;
+    width: 46px;
+    height: 18px;
+    transform: translateX(-50%) rotate(-4deg);
+    background: rgba(212, 197, 174, 0.65);
+    border-left: 1px dashed rgba(255, 255, 255, 0.6);
+    border-right: 1px dashed rgba(255, 255, 255, 0.6);
+}
+
+.pl-frame {
+    display: grid;
+    /* A definite 100% track, so the image's height: 100% resolves to the frame and
+       object-fit/object-position actually crop, rather than the image overflowing
+       at its natural size and being clipped from the middle. */
+    grid-template: 100% / 100%;
+    place-items: center;
+    height: 96px;
+    overflow: hidden;
+    background: repeating-linear-gradient(45deg, var(--fog) 0 8px, var(--misty-white) 8px 16px);
+}
+
+.pl-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Logos sit on the polaroid's own paper, fitted rather than cropped. */
+.pl--logo .pl-frame {
+    background: none;
+}
+
+.pl--logo .pl-frame img {
+    object-fit: contain;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Inline drawings (the move map) sit on a pale sea, fitted to the frame. */
+.pl--drawing .pl-frame {
+    background: var(--fog);
+}
+
+.pl--drawing figcaption {
+    font-size: 0.82rem;
+    white-space: nowrap;
+}
+
+.pl-map {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.pl-map-land {
+    fill: var(--misty-white);
+    stroke: var(--driftwood);
+    stroke-width: 1;
+    stroke-linejoin: round;
+}
+
+.pl-map-route {
+    fill: none;
+    stroke: var(--ocean-deep);
+    stroke-width: 2;
+    stroke-dasharray: 4 3;
+    stroke-linecap: round;
+}
+
+.pl-map-arrow {
+    fill: var(--ocean-deep);
+}
+
+.pl-map-dot {
+    fill: var(--storm);
+    stroke: var(--misty-white);
+    stroke-width: 1.2;
+}
+
+.pl-placeholder {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.66rem;
+    line-height: 1.35;
+    text-align: center;
+    color: var(--rock);
+    padding: 0 6px;
+}
+
+.pl figcaption {
+    font-family: 'Caveat', cursive;
+    font-size: 0.95rem;
+    text-align: center;
+    color: var(--rock);
+    padding-top: 2px;
+    line-height: 1.2;
+}
+
+/* ---------- minimap ---------- */
+.trail-minimap {
+    position: relative;
+    height: 26px;
+    max-width: 1100px;
+    margin: 0.4rem auto 0;
+    cursor: pointer;
+}
+
+.mm-track {
+    position: absolute;
+    inset: 11px 0;
+    background: var(--sand);
+    border-radius: 2px;
+}
+
+.mm-window {
+    position: absolute;
+    top: 3px;
+    bottom: 3px;
+    background: rgba(107, 143, 163, 0.3);
+    border: 2px solid var(--ocean);
+    border-radius: 4px;
+}
+
+/* ---------- detail drawer ---------- */
+/* Docked under the trail (inside .trail-full), in normal page flow. */
+.wp-drawer {
+    position: relative;
+    width: min(860px, calc(100% - 4rem));
+    margin: 1.5rem auto 0;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.97), rgba(227, 232, 237, 0.95));
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px var(--shadow);
+}
+
+.wp-drawer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    border-radius: 12px 12px 0 0;
+    background: linear-gradient(90deg, var(--ocean), var(--cliff));
+}
+
+/* Control bar across the top: ← count →, and × on the far right. Always at the
+   top, so stepping through never depends on how long the story below runs. */
+.wp-drawer-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 1rem 1.25rem 0.75rem 2.25rem;
+    border-bottom: 1px dashed var(--sand);
+}
+
+.wp-drawer-arrow {
+    width: 38px;
+    height: 34px;
+    font-size: 1.1rem;
+    line-height: 1;
+    color: var(--ocean-deep);
+    background: transparent;
+    border: 2px solid var(--border);
+    border-radius: 18px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.wp-drawer-arrow:hover:not(:disabled) {
+    border-color: var(--ocean);
+    background: var(--wave-mist);
+}
+
+.wp-drawer-arrow:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+.wp-drawer-count {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--rock);
+    min-width: 6.5em;
+    text-align: center;
+}
+
+.wp-drawer-close {
+    margin-left: auto;
+    width: 32px;
+    height: 32px;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: var(--rock);
+    background: transparent;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.wp-drawer-close[hidden] {
+    display: none;
+}
+
+.wp-drawer-close:hover {
+    background: var(--fog);
+    color: var(--storm);
+}
+
+.wp-drawer-inner {
+    padding: 1.25rem 2.25rem 1.25rem;
+}
+
+/* buttons on the intro card */
+.wp-drawer-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.25rem;
+}
+
+.wp-drawer-kicker {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.wp-drawer-type {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--ocean);
+    padding: 0.15rem 0.6rem;
+    border-radius: 20px;
+}
+
+.wp-skills {
+    margin-top: 0.25rem;
+}
+
+.wp-skills-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--rock);
+    margin-bottom: 0.45rem;
+}
+
+.wp-skill {
+    display: inline-block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--ocean-deep);
+    background: var(--misty-white);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 0.2rem 0.7rem;
+    margin: 0 0.35rem 0.4rem 0;
+}
+
+.wp-drawer-date {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--rock);
+}
+
+.wp-drawer-body h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--storm);
+    margin-bottom: 0.4rem;
+}
+
+.wp-drawer-body p {
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+}
+
+.wp-drawer-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.9rem;
+}
+
+.wp-drawer-body li {
+    position: relative;
+    padding-left: 1.1rem;
+    margin-bottom: 0.55rem;
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.wp-drawer-body li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--ocean);
+}
+
+.wp-drawer-body strong {
+    color: var(--ocean-deep);
+}
+
+.wp-drawer-step {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 0.5rem 1.25rem;
+    color: var(--ocean-deep);
+    background: transparent;
+    border: 2px solid var(--border);
+    border-radius: 22px;
+    cursor: pointer;
+    transition: all 0.22s ease;
+}
+
+.wp-drawer-step:hover:not(:disabled) {
+    border-color: var(--ocean);
+    background: var(--wave-mist);
+}
+
+.wp-drawer-step:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+/* ---------- vertical (mobile) trail ---------- */
+.trail-vertical {
+    display: none;
+    position: relative;
+    padding-left: 2.75rem;
+}
+
+.trail-vertical::before {
+    content: '';
+    position: absolute;
+    left: 21px;
+    top: 8px;
+    bottom: 8px;
+    width: 4px;
+    border-radius: 2px;
+    background: var(--driftwood);
+}
+
+.vwp {
+    position: relative;
+    margin-bottom: 2.5rem;
+    transition: opacity 0.3s ease;
+}
+
+.vwp.is-dimmed {
+    opacity: 0.18;
+}
+
+.vwp-dot {
+    position: absolute;
+    left: -2.75rem;
+    top: 0;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--misty-white);
+    border: 3px solid var(--ocean-deep);
+    box-shadow: 0 3px 10px var(--shadow);
+}
+
+.vwp--approx .vwp-dot {
+    border-style: dashed;
+}
+
+.vwp--filled .vwp-dot {
+    background: linear-gradient(135deg, var(--ocean), var(--ocean-deep));
+}
+
+.vwp--filled .vwp-dot svg {
+    stroke: #fff;
+}
+
+.vwp-dot svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: var(--ocean-deep);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.vwp-date {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--rock);
+    margin: 0.35rem 0 0.15rem;
+}
+
+.vwp-type {
+    color: var(--ocean);
+}
+
+.vwp--minor {
+    margin-bottom: 2rem;
+}
+
+/* centred on the vertical trail line (23px in from .trail-vertical's edge) */
+.vwp-minor-dot {
+    position: absolute;
+    left: calc(23px - 2.75rem - 6.5px);
+    top: 0.4rem;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: var(--misty-white);
+    border: 2px solid var(--driftwood);
+}
+
+.vwp-minor-note {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.88rem;
+    line-height: 1.35;
+    color: var(--rock);
+}
+
+.vwp-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: var(--storm);
+    margin-bottom: 0.15rem;
+}
+
+.vwp-org {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.9rem;
+    color: var(--ocean-deep);
+    margin-bottom: 0.35rem;
+}
+
+.vwp-note {
+    font-family: 'Caveat', cursive;
+    font-size: 1.15rem;
+    color: var(--driftwood);
+    margin-bottom: 0.5rem;
+}
+
+.vwp-body p {
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
+}
+
+.vwp-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.6rem;
+}
+
+.vwp-body li {
+    position: relative;
+    padding-left: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.vwp-body li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--ocean);
+}
+
+.pl--inline {
+    position: static;
+    width: 160px;
+    transform: rotate(-2deg);
+    margin: 0.5rem 0 0.9rem;
+}
+
+.pl--inline:hover {
+    transform: rotate(0deg);
+}
+
+/* ---------- skills panel ---------- */
+.trail-skills-wrap {
+    padding: 2.5rem 2rem 4rem;
+}
+
+.trail-skills {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(227, 232, 237, 0.6) 100%);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px var(--shadow);
+}
+
+.trail-skills-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    color: var(--ocean);
+    padding-bottom: 0.6rem;
+    border-bottom: 3px solid var(--sand);
+    margin: 0;
+}
+
+/* Plain bulleted lists, one column per category, wrapping on narrow screens. */
+.trail-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1.5rem 2rem;
+}
+
+.trail-skills .skill-category-title {
+    font-size: 0.85rem;
+    margin-bottom: 0.6rem;
+}
+
+.skill-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-list li {
+    position: relative;
+    padding-left: 1rem;
+    margin-bottom: 0.35rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--storm);
+}
+
+.skill-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.62rem;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--ocean);
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 768px) {
+    .trail-full { display: none; }
+    .trail-vertical { display: block; }
+
+    .trail-glance { padding: 1.25rem; }
+
+    .trail-skills { padding: 1.75rem 1.25rem; }
+
+    .trail-vertical-wrap { padding: 2.5rem 2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .wp-flag-note,
+    .pl,
+    .wp-dot {
+        transition: none;
     }
 }

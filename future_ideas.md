@@ -40,6 +40,10 @@ A running list of ideas for website improvements, blog posts, and other future e
 - [ ] **Resume page**
     - Either make it match my actual resume, or replace the entire page with the interactive professional timeline (see About, above)
     - Ideally, it contains more information than I could fit on a single-page resume, and with a lot more of my humanity/voice shown. Written in a more candid and detailed style.
+    - **Skills, take two.** The first attempt was a gantt-style "strata" band under the trail map — one bar per skill, starting at the month I picked it up. Removed: at a glance it just read as a stack of anonymous horizontal lines, and any bar that started off-screen lost its label entirely. Two better directions to try instead:
+        - *Skills backpack* — a persistent pack/kit somewhere on the page that visibly fills up as you travel the timeline. Each skill is an object you acquire at a specific waypoint, so the "when did I learn this" story survives without a chart. Could sit in a corner of the map, or be its own section that reacts to which waypoint is open.
+        - *Per-waypoint skills* — each timeline element carries its own short list of what I picked up there, shown in the detail drawer. Simpler, and it puts each skill next to the actual work that taught it. Could pair with a filter: click a skill anywhere on the page and the trail highlights every waypoint where it shows up.
+        - Either way, keep the "What I carry" summary panel below the map as the plain scannable list.
 - [ ] **Contact page**
     - Keep it pretty simple
 - [ ] **Hidden pages**

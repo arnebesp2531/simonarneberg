@@ -50,157 +50,1097 @@
         </ul>
     </nav>
 
-    <main class="container">
-        <section class="page active">
-            <div class="page-content">
-                <div class="section-header">
-                    <h1>Resume</h1>
-                    <div class="section-ornament"></div>
-                </div>
+    <main>
+        <div class="container trail-intro">
+            <div class="section-header">
+                <h1>Interactive Resume</h1>
+                <div class="section-ornament"></div>
+            </div>
+        </div>
 
-                <div style="text-align: center; margin-bottom: 2.5rem;">
-                    <a href="../assets/pdfs/Simon_Arneberg_resume_2026.pdf" target="_blank" class="pdf-download-link">
-                        View as a PDF
-                    </a>
-                </div>
+        <!-- ============ HORIZONTAL TRAIL (desktop) ============ -->
+        <div class="trail-full" id="trailFull">
+            <div class="trail-toolbar">
+                <p class="trail-hint" id="trailHint">
+                    Click and drag the timeline (or swipe sideways) to scroll through the years, then click any marker or photo for more details.
+                </p>
+                <button type="button" class="trail-jump" id="trailJump">Jump to today &rarr;</button>
+            </div>
 
-                <div class="resume-section">
-                    <h3 class="section-title">Experience</h3>
-
-                    <div class="resume-item">
-                        <div class="timeline-dot"></div>
-                        <div class="resume-item-header">
-                            <div class="resume-item-text">
-                                <h4>Data Engineer</h4>
-                                <p class="resume-meta">InterWorks &mdash; Portland, OR <span class="resume-dates">October 2025 &ndash; present</span></p>
-                            </div>
-                            <img class="resume-logo" src="../assets/images/logos/interworks_logo.jpg" alt="InterWorks logo">
-                        </div>
-                        <ul class="resume-bullets">
-                            <li>Build resilient pipelines and data models with SQL + dbt.</li>
-                            <li>Communicate clearly with wide-ranging clients, from ed-tech to video game development.</li>
-                            <li>Migrate legacy Matillion pipelines into code-first Analytics Engineering solutions (Snowflake/dbt).</li>
-                        </ul>
-                    </div>
-
-                    <div class="resume-item">
-                        <div class="timeline-dot"></div>
-                        <div class="resume-item-header">
-                            <div class="resume-item-text">
-                                <h4>Data Analyst, Business Systems Engineering</h4>
-                                <p class="resume-meta">Hewlett Packard Enterprise &mdash; Chippewa Falls, WI <span class="resume-dates">June 2022 &ndash; June 2025</span></p>
-                            </div>
-                            <img class="resume-logo" src="../assets/images/logos/HPE_logo_2025.svg.png" alt="Hewlett Packard Enterprise logo">
-                        </div>
-                        <ul class="resume-bullets">
-                            <li><strong>Historical Reporting</strong> &ndash; Constructed custom Power BI apps for 5 different departments, enabling plant leadership to easily see quality objective trends. Data pipeline processed &gt;$4B worth of cycle counted inventory, &gt;7500 Sales Order commit/ship dates, and &gt;3.6M vendor parts.</li>
-                            <li><strong>Operational Data Quality</strong> &ndash; Built a SAP/Python script to daily extract and validate BOM details, enabling preemptive correction in 12.6% (~$450M worth) of Sales Orders over a 12 month period.</li>
-                            <li>Conducted biweekly quality meeting with engineers and managers to discuss product first pass yields, drilling down to root cause and assigning action owners.</li>
-                        </ul>
-                        <p class="resume-meta resume-sub-meta">Data Scientist Intern &mdash; Chippewa Falls, WI <span class="resume-dates">June 2022 &ndash; September 2022</span></p>
-                        <ul class="resume-bullets">
-                            <li><strong>Internship Project</strong> &ndash; &ldquo;Building an Internal Manufacturing Metrics Dashboard&rdquo; using SQL and Python.</li>
-                        </ul>
-                    </div>
-
-                    <div class="resume-item">
-                        <div class="timeline-dot"></div>
-                        <div class="resume-item-header">
-                            <div class="resume-item-text">
-                                <h4>Artificial Intelligence &amp; Machine Learning Security</h4>
-                                <p class="resume-meta">AIMS Research Group &mdash; UW-Eau Claire <span class="resume-dates">September 2021 &ndash; May 2022</span></p>
-                            </div>
-                            <img class="resume-logo" src="../assets/images/logos/UWEC_logo.svg" alt="University of Wisconsin-Eau Claire logo">
-                        </div>
-                        <ul class="resume-bullets">
-                            <li>Reviewed and summarized the current state of research on Data Mining in Smart Cities.</li>
-                            <li>Co-authored a comprehensive literature review published to the Journal of Computer Science.</li>
-                        </ul>
-                    </div>
-
-                    <div class="resume-item">
-                        <div class="timeline-dot"></div>
-                        <div class="resume-item-header">
-                            <div class="resume-item-text">
-                                <h4>Marketplace Analytics &amp; Operations Internships</h4>
-                                <p class="resume-meta">PetHonesty &mdash; Austin, TX <span class="resume-dates">June 2020 &ndash; August 2020, June 2021 &ndash; August 2021</span></p>
-                            </div>
-                            <img class="resume-logo" src="../assets/images/logos/pethonesty_logo.jpg" alt="PetHonesty logo">
-                        </div>
-                        <ul class="resume-bullets">
-                            <li>Constructed multiple trackers for key features across 40+ products.</li>
-                            <li>Responsible for driving 1000+ organic reviews for 10 key products on Chewy.com.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="resume-section">
-                    <h3 class="section-title">Education</h3>
-                    <div class="resume-item">
-                        <div class="timeline-dot"></div>
-                        <div class="resume-item-header">
-                            <div class="resume-item-text">
-                                <h4>University of Wisconsin &ndash; Eau Claire</h4>
-                                <p class="resume-meta">B.S. Computer Science, Minor in Mathematics <span class="resume-dates">September 2018 &ndash; May 2022</span></p>
-                            </div>
-                            <img class="resume-logo" src="../assets/images/logos/UWEC_logo.svg" alt="University of Wisconsin-Eau Claire logo">
-                        </div>
-                        <ul class="resume-bullets">
-                            <li>GPA: 3.72</li>
-                            <li>University Honors Program, Magna Cum Laude</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="resume-section">
-                    <h3 class="section-title">Skills</h3>
-                    <div class="skills-categories">
-                        <div class="skill-category">
-                            <h4 class="skill-category-title">Certifications</h4>
-                            <div class="skills-grid">
-                                <span class="skill-badge">SnowPro Core Certification</span>
-                                <span class="skill-badge">Databricks Certified Data Engineer Associate</span>
-                            </div>
-                        </div>
-                        <div class="skill-category">
-                            <h4 class="skill-category-title">Technical</h4>
-                            <div class="skills-grid">
-                                <span class="skill-badge">SQL</span>
-                                <span class="skill-badge">dbt</span>
-                                <span class="skill-badge">Python (pandas)</span>
-                                <span class="skill-badge">Power BI</span>
-                                <span class="skill-badge">Excel</span>
-                                <span class="skill-badge">Power Query</span>
-                                <span class="skill-badge">Cloud warehousing</span>
-                            </div>
-                        </div>
-                        <div class="skill-category">
-                            <h4 class="skill-category-title">Analytical</h4>
-                            <div class="skills-grid">
-                                <span class="skill-badge">ETL</span>
-                                <span class="skill-badge">Dashboard development</span>
-                                <span class="skill-badge">Data modeling</span>
-                                <span class="skill-badge">KPI analysis</span>
-                                <span class="skill-badge">Root cause analysis</span>
-                            </div>
-                        </div>
-                        <div class="skill-category">
-                            <h4 class="skill-category-title">Personal</h4>
-                            <div class="skills-grid">
-                                <span class="skill-badge">Writing/recording music (6 EPs)</span>
-                                <span class="skill-badge">Cross-country bicycle touring</span>
-                                <span class="skill-badge">Juggling</span>
-                            </div>
-                        </div>
-                    </div>
+            <div class="trail-viewport" id="trailViewport" tabindex="0" role="region"
+                 aria-label="Interactive career and life timeline. Drag or use arrow keys to pan. Press Enter on a marker to read more.">
+                <div class="trail-canvas" id="trailCanvas">
+                    <div class="trail-layer trail-headlands" data-depth="0.12"></div>
+                    <div class="trail-layer trail-fogbank" data-depth="0.3"></div>
+                    <svg class="trail-svg" id="trailSvg" aria-hidden="true" preserveAspectRatio="none"></svg>
+                    <div class="trail-years" id="trailYears" aria-hidden="true"></div>
+                    <div class="trail-media" id="trailMedia" aria-hidden="true"></div>
+                    <div class="trail-markers" id="trailMarkers"></div>
                 </div>
             </div>
-        </section>
+
+            <div class="trail-minimap" id="trailMinimap" role="presentation">
+                <div class="mm-track" id="mmTrack"></div>
+                <div class="mm-window" id="mmWindow"></div>
+            </div>
+
+            <!-- Detail panel: docked under the trail, always present. Shows a short
+                 "start here" card until a stop is picked; arrows live at the top so
+                 they're reachable however long the story below them is. -->
+            <div class="wp-drawer" id="wpDrawer" role="region" aria-labelledby="wpDrawerTitle" aria-live="polite">
+                <div class="wp-drawer-bar">
+                    <button type="button" class="wp-drawer-arrow" id="wpPrev" aria-label="Previous stop">&larr;</button>
+                    <span class="wp-drawer-count" id="wpCount"></span>
+                    <button type="button" class="wp-drawer-arrow" id="wpNext" aria-label="Next stop">&rarr;</button>
+                    <button type="button" class="wp-drawer-close" id="wpDrawerClose" aria-label="Close details">&times;</button>
+                </div>
+                <div class="wp-drawer-inner" id="wpDrawerInner"></div>
+            </div>
+        </div>
+
+        <!-- ============ VERTICAL TRAIL (mobile) ============ -->
+        <div class="container trail-vertical-wrap">
+            <div class="trail-vertical" id="trailVertical"></div>
+        </div>
+
+        <!-- ============ WHERE THINGS STAND ============ -->
+        <div class="container trail-glance-wrap">
+            <dl class="trail-glance">
+                <div class="glance-item">
+                    <dt>Now</dt>
+                    <dd>Data Engineer, InterWorks &mdash; Portland, OR</dd>
+                </div>
+                <div class="glance-item">
+                    <dt>Experience</dt>
+                    <dd>4 years in data &amp; analytics</dd>
+                </div>
+                <div class="glance-item">
+                    <dt>Degree</dt>
+                    <dd>B.S. Computer Science, UW&ndash;Eau Claire</dd>
+                </div>
+                <div class="glance-item">
+                    <dt>Working with</dt>
+                    <dd>SQL &middot; dbt &middot; Snowflake &middot; Python &middot; Power BI</dd>
+                </div>
+            </dl>
+        </div>
+
+        <!-- ============ SKILLS PANEL ============ -->
+        <div class="container trail-skills-wrap">
+            <section class="trail-skills">
+                <h2 class="trail-skills-title">Skills I&rsquo;ve acquired along the way</h2>
+                <div class="trail-skills-grid">
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">Certifications</h3>
+                        <ul class="skill-list">
+                            <li>SnowPro Core Certification</li>
+                            <li>Databricks Certified Data Engineer Associate</li>
+                            <li>Databricks Certified Generative AI Engineer Associate</li>
+                            <li>Sigma AI Apps Specialist</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">Technical</h3>
+                        <ul class="skill-list">
+                            <li>SQL</li>
+                            <li>dbt</li>
+                            <li>Python (pandas)</li>
+                            <li>Snowflake</li>
+                            <li>Databricks</li>
+                            <li>Power BI</li>
+                            <li>Excel</li>
+                            <li>Power Query</li>
+                            <li>Cloud warehousing</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">Analytical</h3>
+                        <ul class="skill-list">
+                            <li>ETL</li>
+                            <li>Dashboard development</li>
+                            <li>Data modeling</li>
+                            <li>KPI analysis</li>
+                            <li>Root cause analysis</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">Personal</h3>
+                        <ul class="skill-list">
+                            <li>Writing/recording music (6 EPs)</li>
+                            <li>Cross-country bicycle touring</li>
+                            <li>Juggling</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <div class="trail-actions">
+                <a href="../assets/pdfs/Simon_Arneberg_resume_2026.pdf" target="_blank" class="pdf-download-link">
+                    View as a PDF
+                </a>
+            </div>
+        </div>
+
+
+        <!--
+            ============ SOURCE CONTENT ============
+            This is the real, semantic resume. It is visually hidden but fully present for
+            screen readers and search engines; the timeline clones it into the drawer.
+            EDIT PROSE HERE. Structure/dates/tags live in the TIMELINE array in the script below.
+        -->
+        <div class="visually-hidden" id="wpSource">
+            <h2>Resume &mdash; full text</h2>
+
+            <article id="wp-uwec-start">
+                <h3>University of Wisconsin &ndash; Eau Claire</h3>
+                <p>B.S. Computer Science, Minor in Mathematics</p>
+                <p>While at UWEC, I took lots of exciting classes about computers, math, psychology, music, and geography. Favorite classes: Music &amp; the Brain, Discrete Math, Human Geography.</p>
+            </article>
+
+            <article id="wp-pethonesty-2020">
+                <h3>Marketplace Analytics Internship</h3>
+                <p>PetHonesty &mdash; Austin, TX</p>
+                <p>I got the opportunity to work for a very lean e-commerce company down in Austin, TX. Fun to see how small teams operate, and I got experience making real decisions with data.</p>
+                <ul>
+                    <li>Responsible for driving 1000+ organic reviews for 10 key products on Chewy.com.</li>
+                    <li>Built and maintained 15+ automated customer messaging flows through ManyChat software.</li>
+                    <li>Created a dashboard to analyze marketing funnels and track key advertising metrics.</li>
+                    <li>Analyzed large datasets to drive decision-making for future product release and marketing.</li>
+                </ul>
+            </article>
+
+            <article id="wp-pethonesty-2021">
+                <h3>Operations Internship</h3>
+                <p>PetHonesty &mdash; Austin, TX</p>
+                <p>I came back to PH for another summer internship, with a slightly different emphasis on Operations. Learned a ton, helped a lot of pet owners get the best product possible.</p>
+                <ul>
+                    <li>Constructed multiple trackers for key features across 40+ products.</li>
+                    <li>Created spreadsheet to quantify existing qualitative data from customer interviews.</li>
+                    <li>Collaborated closely with dynamic teams of marketers, graphic designers, and decision-makers.</li>
+                </ul>
+            </article>
+
+            <article id="wp-aims">
+                <h3>Artificial Intelligence &amp; Machine Learning Security</h3>
+                <p>AIMS Research Group, UW&ndash;Eau Claire</p>
+                <ul>
+                    <li>Reviewed and summarized the current state of research on Data Mining in Smart Cities.</li>
+                    <li>Co-authored a comprehensive literature review published to the Journal of Computer Science (May 2022).</li>
+                </ul>
+                <p><a href="https://thescipub.com/abstract/jcssp.2022.396.414" target="_blank" rel="noopener">Read the paper</a></p>
+            </article>
+
+            <article id="wp-grad">
+                <h3>Graduated UW&ndash;Eau Claire</h3>
+                <p>B.S. Computer Science, Minor in Mathematics</p>
+                <ul>
+                    <li>GPA: 3.72</li>
+                    <li>University Honors Program, Magna Cum Laude</li>
+                    <li>Karlgaard Computer Science Scholar</li>
+                </ul>
+            </article>
+
+            <article id="wp-hpe-intern">
+                <h3>Data Scientist Intern</h3>
+                <p>Hewlett Packard Enterprise &mdash; Chippewa Falls, WI</p>
+                <p>Landed an internship at HPE immediately after college, and got right to work building dashboards and data pipelines using SQL and Python.</p>
+                <ul>
+                    <li>Internship project: &ldquo;Building an Internal Manufacturing Metrics Dashboard&rdquo; using SQL and Python.</li>
+                </ul>
+            </article>
+
+            <article id="wp-hpe">
+                <h3>Data Analyst, Business Systems Engineering</h3>
+                <p>Hewlett Packard Enterprise &mdash; Chippewa Falls, WI</p>
+                <p>In this job, I deepened my data skillset in order to support a manufacturing facility in my hometown. During this time, we built and shipped the world&rsquo;s fastest supercomputers all around the world to leading scientists and laboratories. I interfaced with all sorts of engineers, combing through their messy datasets to produce reliable Power BI reports &mdash; Operations, Industrial Engineering, Assembly, and Yield metrics.</p>
+                <ul>
+                    <li><strong>Historical Reporting</strong> &ndash; Constructed custom Power BI apps for 5 different departments, enabling plant leadership to easily see quality objective trends. Data pipeline processed &gt;$4B worth of cycle counted inventory, &gt;7500 Sales Order commit/ship dates, and &gt;3.6M vendor parts.</li>
+                    <li><strong>Operational Data Quality</strong> &ndash; Built a SAP/Python script to daily extract and validate BOM details, enabling preemptive correction in 12.6% (~$450M worth) of Sales Orders over a 12 month period.</li>
+                    <li>Conducted biweekly quality meetings with engineers and managers to discuss product first pass yields, drilling down to root cause and assigning action owners.</li>
+                </ul>
+            </article>
+
+            <article id="wp-move-pdx">
+                <h3>Moved to Portland, Oregon</h3>
+                <p>August 2025</p>
+                <p>Packed up everything into a U-Haul pod and moved across the country to Portland! So many adventures in this new place.</p>
+            </article>
+
+            <article id="wp-interworks">
+                <h3>Data Engineer</h3>
+                <p>InterWorks &mdash; Portland, OR</p>
+                <p>At InterWorks, I get to solve really interesting data problems for all sorts of clients. Notably, I have been able to help out multiple companies in the education technology realm, supporting the people who are working to improve curriculum, administration, and equity in our schools.</p>
+                <ul>
+                    <li>Build resilient pipelines and data models with SQL + dbt.</li>
+                    <li>Communicate clearly with wide-ranging clients, from ed-tech to video game development.</li>
+                    <li>Migrate legacy Matillion pipelines into code-first Analytics Engineering solutions (Snowflake/dbt).</li>
+                </ul>
+            </article>
+
+            <article id="wp-snowpro">
+                <h3>SnowPro Core Certification</h3>
+            </article>
+
+            <article id="wp-databricks">
+                <h3>Databricks Certified Data Engineer Associate</h3>
+            </article>
+
+            <article id="wp-databricks-genai">
+                <h3>Databricks Certified Generative AI Engineer Associate</h3>
+            </article>
+
+            <article id="wp-sigma">
+                <h3>Sigma AI Apps Specialist</h3>
+            </article>
+
+        </div>
     </main>
 
     <footer class="site-footer">
         <p>&copy; 2026 Simon Arneberg</p>
     </footer>
+
     <script src="../js/nav.js"></script>
+    <script>
+    (function () {
+        'use strict';
+
+        /* ------------------------------------------------------------------
+           TIMELINE DATA
+           One entry per waypoint. Prose lives in #wpSource (keyed by `id`).
+           date: 'YYYY-MM', used for placement and as the label for one-off events.
+           end:  'YYYY-MM' or 'present' -> shown as a range ("Sept 2022 – Jun 2025").
+           yearsOnly: true -> range shows years only.  when: overrides the label outright.
+           approx: true -> marker is drawn dashed ("date TBD").
+           filled: true -> solid blue marker, like the jobs (which get it automatically).
+           minor: true -> a small, non-clickable dot with just a short `note`;
+           the little personal details. Needs only id, date, minor, tags and note.
+           type: icon + color.  tags: which filter threads reveal it.
+           skills: listed in the callout.  media: polaroids (label-only = placeholder);
+           logo: true fits the image inside the frame instead of cropping it.
+           svg: key into DRAWINGS, for an inline illustration instead of a photo.
+           focus: CSS object-position for a photo's crop, e.g. 'center 20%'.
+        ------------------------------------------------------------------ */
+        var TIMELINE = [
+            { id: 'wp-uwec-start', date: '2018-09', end: '2022-05', yearsOnly: true,
+              type: 'school', tags: ['work'], filled: true,
+              title: 'UW–Eau Claire', org: 'B.S. Computer Science',
+              note: 'Venturing Out',
+              media: [{ src: '../assets/images/logos/UWEC_logo.svg', label: 'UW–Eau Claire', logo: true }] },
+
+            { id: 'wp-fun-band', date: '2020-12', minor: true, tags: ['work'],
+              note: 'Blugold Marching Band trumpet player and rank lieutenant' },
+
+            { id: 'wp-fun-ep', date: '2020-02', minor: true, tags: ['work'],
+              note: 'Recorded and released first EP' },
+
+            { id: 'wp-pethonesty-2020', date: '2020-06', when: 'Summer 2020',
+              type: 'internship', tags: ['work'],
+              title: 'Marketplace Analytics Intern', org: 'PetHonesty',
+              note: 'First internship',
+              media: [{ src: '../assets/images/logos/pethonesty_logo.jpg', label: 'PetHonesty', logo: true }] },
+
+            { id: 'wp-pethonesty-2021', date: '2021-06', when: 'Summer 2021',
+              type: 'internship', tags: ['work'],
+              title: 'Operations Intern', org: 'PetHonesty',
+              note: 'Second internship' },
+
+            { id: 'wp-aims', date: '2021-09', end: '2022-05', type: 'research', tags: ['work'],
+              title: 'AIMS Research Group', org: 'AI/ML Security, UWEC',
+              note: 'co-authored a published lit review',
+              skills: ['Literature review', 'Data mining', 'Academic writing'] },
+
+            { id: 'wp-grad', date: '2022-05', type: 'school', tags: ['work'],
+              title: 'Graduated', org: 'Magna Cum Laude',
+              note: '',
+              media: [{ src: '../assets/images/simon_graduation.jpeg', label: 'Graduation day', focus: 'center 42%' }] },
+
+            { id: 'wp-hpe-intern', date: '2022-06', end: '2022-09', type: 'work', tags: ['work'],
+              title: 'Data Scientist Intern', org: 'Hewlett Packard Enterprise',
+              skills: ['SQL', 'Python', 'Dashboard development'] },
+
+            // Same month as the HPE job; listed first so it sorts just before it.
+            { id: 'wp-fun-bike', date: '2022-09', minor: true, tags: ['work'],
+              note: '1,800-mile bicycle trip down the West Coast' },
+
+            { id: 'wp-hpe', date: '2022-09', end: '2025-06', type: 'work', tags: ['work'],
+              title: 'Data Analyst, Business Systems Engineering', org: 'Hewlett Packard Enterprise',
+              note: 'supercomputer capital of the world',
+              skills: ['Power BI', 'Python', 'SAP', 'ETL', 'Data quality', 'Root cause analysis'],
+              media: [{ src: '../assets/images/logos/HPE_logo_2025.svg.png', label: 'Hewlett Packard Enterprise', logo: true }] },
+
+            { id: 'wp-fun-adventure', date: '2025-07', minor: true, tags: ['work'],
+              note: 'Summer of adventure! Travel, marathons, and bike trips' },
+
+            { id: 'wp-move-pdx', date: '2025-08', type: 'move', tags: ['work'],
+              title: 'Moved to Portland', org: 'Oregon',
+              note: 'Go west, young man!',
+              media: [{ svg: 'move-map', label: 'Eau Claire → Portland' }] },
+
+            { id: 'wp-interworks', date: '2025-10', end: 'present', type: 'work', tags: ['work'],
+              title: 'Data Engineer', org: 'InterWorks',
+              note: 'current position',
+              current: true,
+              skills: ['SQL', 'dbt', 'Snowflake', 'Matillion', 'Data modeling', 'Client communication'],
+              media: [{ src: '../assets/images/logos/interworks_logo.jpg', label: 'InterWorks', logo: true }] },
+
+            { id: 'wp-snowpro', date: '2025-12', type: 'cert', tags: ['work'],
+              title: 'SnowPro Core', org: 'certification' },
+
+            { id: 'wp-databricks', date: '2026-03', type: 'cert', tags: ['work'],
+              title: 'Databricks DE Associate', org: 'certification' },
+
+            { id: 'wp-databricks-genai', date: '2026-06', type: 'cert', tags: ['work'],
+              title: 'Databricks Gen AI Engineer Associate', org: 'certification' },
+
+            { id: 'wp-sigma', date: '2026-08', type: 'cert', tags: ['work'],
+              title: 'Sigma AI Apps Specialist', org: 'certification' }
+        ];
+
+        var ICONS = {
+            work:      '<path d="M4 8h16v11H4z"/><path d="M9 8V6h6v2"/>',
+            school:    '<path d="M12 5 2 10l10 5 10-5z"/><path d="M6 12.5V17c0 1.5 2.7 2.5 6 2.5s6-1 6-2.5v-4.5"/>',
+            research:  '<circle cx="11" cy="11" r="6"/><path d="M15.5 15.5 21 21"/>',
+            cert:      '<circle cx="12" cy="9" r="5"/><path d="M9 13.5 8 21l4-2 4 2-1-7.5"/>',
+            move:      '<path d="M12 21s-6-5.6-6-10.5a6 6 0 0 1 12 0C18 15.4 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.2"/>'
+        };
+        ICONS.internship = ICONS.work;   // same briefcase, but drawn white rather than filled
+
+        var TYPE_LABEL = {
+            work: 'Work', internship: 'Internship', school: 'School', research: 'Research',
+            cert: 'Certification', move: 'Relocation'
+        };
+
+        /* Stretches of the trail drawn in brand colors: time spent at one place.
+           from: waypoint id.  to: waypoint id, or 'YYYY-MM', or 'present' (runs off
+           the end of the trail with an arrow).  brand: picks the stroke color. */
+        var SPANS = [
+            { from: 'wp-uwec-start', to: 'wp-grad',          brand: 'uwec' },
+            { from: 'wp-hpe-intern', to: 'wp-fun-adventure', brand: 'hpe' },
+            { from: 'wp-interworks', to: 'present',          brand: 'interworks' }
+        ];
+
+        /* Inline illustrations for polaroids. Inline (not <img>) so they can use the
+           palette variables. The map is a hand-simplified lower 48, equirectangular. */
+        var DRAWINGS = {
+            'move-map':
+                '<svg class="pl-map" viewBox="-2 -2 185 105" role="img"' +
+                    ' aria-label="Map: from Eau Claire, Wisconsin, west to Portland, Oregon">' +
+                    '<path class="pl-map-land" d="M2.5 5.6L7.7 3.2L92.8 3.2L110.3 7.2L124.7 13.2L128.7 15.2L132.1 27.2' +
+                        'L140 26L150.7 22.4L154.7 19.2L165.5 19.2L170.1 12.4L176.8 10.8L179.2 19.2L169.4 24.8L168.2 31.2' +
+                        'L164.2 34L157.8 36.8L157.8 41.2L154.7 44L151.7 51.2L153.2 58.4L145.8 63.6L139.7 68.4L135.1 76.4' +
+                        'L139.1 91.6L138.2 98.4L133.9 94.8L130.8 87.6L128.4 79.6L124.4 80.4L116.1 78L110 78.4L110.6 83.2' +
+                        'L104.8 82L97.1 80.4L93.5 82L86.7 88.4L86.1 95.6L79.7 89.2L73.8 80L68.6 83.2L64.3 80.4L58.2 72' +
+                        'L53 74L44.1 74L32.8 69.2L25.7 69.2L21.4 63.2L15 60.8L9.2 49.2L5.2 40L3.4 31.2L4.6 14.4Z"/>' +
+                    '<path class="pl-map-route" d="M104.2 20Q56 46 17 21"/>' +
+                    '<path class="pl-map-arrow" d="M11.9 17.8L18.9 18.1L15.1 23.9Z"/>' +
+                    '<circle class="pl-map-dot" cx="104.2" cy="20" r="3"/>' +
+                    '<circle class="pl-map-dot" cx="8.6" cy="17.2" r="3"/>' +
+                '</svg>'
+        };
+
+        function mediaInner(m) {
+            if (m.svg)  { return DRAWINGS[m.svg] || ''; }
+            if (m.src)  {
+                // Logos are tiny, so load them up front; only real photos wait to be scrolled to.
+                return '<img src="' + m.src + '" alt="' + (m.label || '') + '" loading="' + (m.logo ? 'eager' : 'lazy') + '"' +
+                    (m.focus ? ' style="object-position:' + m.focus + '"' : '') + '>';
+            }
+            return '<span class="pl-placeholder">' + (m.label || 'photo') + '</span>';
+        }
+
+        function mediaClass(m) {
+            return (m.logo ? ' pl--logo' : '') + (m.svg ? ' pl--drawing' : '');
+        }
+
+        var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+
+        function fmtMonth(d, yearsOnly) {
+            var p = d.split('-');
+            return yearsOnly ? p[0] : MONTHS[parseInt(p[1], 10) - 1] + ' ' + p[0];
+        }
+
+        // "Sept 2022 – Jun 2025" for ranges, "May 2022" for one-off events.
+        function whenLabel(it) {
+            var label = it.when;
+            if (!label) {
+                label = fmtMonth(it.date, it.yearsOnly);
+                if (it.end) {
+                    label += ' – ' + (it.end === 'present' ? 'Present' : fmtMonth(it.end, it.yearsOnly));
+                }
+            }
+            return (it.approx ? '~' : '') + label;
+        }
+
+        // Jobs get the solid blue marker; `filled: true` opts anything else in.
+        function isFilled(it) { return it.type === 'work' || !!it.filled; }
+
+        function skillsHtml(it) {
+            if (!it.skills || !it.skills.length) { return ''; }
+            return '<div class="wp-skills">' +
+                '<p class="wp-skills-label">Skills</p>' +
+                it.skills.map(function (s) { return '<span class="wp-skill">' + s + '</span>'; }).join('') +
+                '</div>';
+        }
+
+        /* ------------------------------------------------------------------ */
+
+        var $ = function (id) { return document.getElementById(id); };
+        var viewport = $('trailViewport');
+        var canvas   = $('trailCanvas');
+        var svg      = $('trailSvg');
+        var markersEl = $('trailMarkers');
+        var mediaEl  = $('trailMedia');
+        var yearsEl  = $('trailYears');
+        var vertEl   = $('trailVertical');
+        var drawer   = $('wpDrawer');
+        var drawerInner = $('wpDrawerInner');
+        var minimap  = $('trailMinimap');
+        var mmWindow = $('mmWindow');
+        var source   = $('wpSource');
+
+        if (!viewport || !canvas) { return; }
+
+        var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        // Must match the stylesheet's breakpoint that swaps the trail for the vertical list.
+        var MOBILE_Q = window.matchMedia('(max-width: 768px)');
+
+        /* The canvas is divided into fixed horizontal bands so nothing can collide,
+           packed tight so the detail panel below still fits on a short screen:
+              0- 34  year ruler
+             30-130  marker labels (always above the path; taller while hovered)
+            163-229  the route itself (MID_Y +/- wave amplitude)
+            229-290  minor notes, hanging just below the route
+            296-440  polaroid lane
+           Labels sit above the path and photos below it, which is what keeps the
+           two from ever landing on each other. */
+        var MIN_GAP   = 210;   // px between adjacent waypoints
+        var CERT_GAP  = 160;   // px between consecutive certifications
+        var MARKER_R  = 34;    // marker dot radius, plus a little air
+        var MINOR_HALF = 60;   // half of .wp-minor-note's width in the stylesheet
+        // px of trail before the first / after the last marker: half the viewport, so
+        // even the first and last stops can be scrolled to the centre when opened.
+        var PAD_X     = Math.max(200, Math.round(viewport.clientWidth / 2));
+        var START_X   = 200;   // where the first marker sits on screen when the page loads
+        var PX_PER_YR = 300;   // baseline horizontal scale
+        var MID_Y     = 196;   // vertical centre of the path
+        var POLA_TOP  = 296;   // top of the polaroid lane
+        var POLA_W    = 132;   // must match .pl width in the stylesheet
+        var TRAIL_H   = 450;   // canvas height: the polaroid lane plus breathing room
+
+        var months = function (d) {
+            var p = d.split('-');
+            return parseInt(p[0], 10) * 12 + (parseInt(p[1], 10) - 1);
+        };
+
+        /* Path shape: markers sit exactly on this curve, so it can never drift. */
+        var pathY = function (x) {
+            return MID_Y + 24 * Math.sin(x / 260) + 9 * Math.sin(x / 97 + 1.1);
+        };
+
+        var items = TIMELINE.slice().sort(function (a, b) { return months(a.date) - months(b.date); });
+
+        /* --- x positions: each gap grows with the square root of the time between
+           waypoints. Long quiet stretches stop eating the screen, clustered events
+           still get room for their labels, and longer spans still read as longer. --- */
+        items.forEach(function (it) { it.m = months(it.date); });
+        var majors = items.filter(function (it) { return !it.minor; });
+        majors[0].x = PAD_X;
+        for (var i = 1; i < majors.length; i++) {
+            var gapMonths = majors[i].m - majors[i - 1].m;
+            // Back-to-back certifications pack in tight: they're small, quick milestones,
+            // and their labels are narrower (see .wp--cert .wp-flag).
+            var certRun = majors[i].type === 'cert' && majors[i - 1].type === 'cert';
+            majors[i].x = majors[i - 1].x +
+                (certRun ? CERT_GAP : Math.max(MIN_GAP, 150 + 45 * Math.sqrt(gapMonths)));
+        }
+
+        /* Minor notes take up no room of their own: each one slots into the gap between
+           its neighbouring stops, at its point in time, kept off the ends of the gap so
+           it doesn't crowd either marker. */
+        items.forEach(function (it, idx) {
+            if (!it.minor) { return; }
+            var prev = null, next = null, k;
+            for (k = idx - 1; k >= 0 && !prev; k--) { if (!items[k].minor) { prev = items[k]; } }
+            for (k = idx + 1; k < items.length && !next; k++) { if (!items[k].minor) { next = items[k]; } }
+            if (!prev || !next) { it.x = (prev || next).x + (prev ? 1 : -1) * MIN_GAP / 2; return; }
+            var frac = next.m === prev.m ? 0.5 : (it.m - prev.m) / (next.m - prev.m);
+            frac = Math.min(0.7, Math.max(0.3, frac));
+            it.x = prev.x + frac * (next.x - prev.x);
+            // ...but never so close that its note runs under a neighbouring marker.
+            var clear = MINOR_HALF + MARKER_R;
+            if (next.x - prev.x > 2 * clear) {
+                it.x = Math.min(next.x - clear, Math.max(prev.x + clear, it.x));
+            }
+        });
+        items.forEach(function (it, idx) { it.index = idx; it.y = pathY(it.x); it.above = true; });
+
+        var CANVAS_W = Math.round(items[items.length - 1].x + PAD_X);
+
+        /* --- piecewise-linear month -> x, so year ticks land correctly --- */
+        function xForMonth(m) {
+            if (m <= items[0].m) {
+                return items[0].x - (items[0].m - m) / 12 * PX_PER_YR;
+            }
+            for (var k = 1; k < items.length; k++) {
+                if (m <= items[k].m) {
+                    var a = items[k - 1], b = items[k];
+                    if (b.m === a.m) { return b.x; }
+                    return a.x + (m - a.m) / (b.m - a.m) * (b.x - a.x);
+                }
+            }
+            var last = items[items.length - 1];
+            return last.x + (m - last.m) / 12 * PX_PER_YR;
+        }
+
+        /* ================= render: SVG path, terrain, year ticks ================= */
+        function renderSvg() {
+            var d = '', x;
+            for (x = 0; x <= CANVAS_W; x += 8) {
+                d += (x === 0 ? 'M' : 'L') + x + ' ' + pathY(x).toFixed(1) + ' ';
+            }
+
+            // Distant ridgeline, drawn from a second, lazier wave.
+            var ridge = 'M0 ' + TRAIL_H + ' ';
+            for (x = 0; x <= CANVAS_W; x += 16) {
+                var ry = 100 + 24 * Math.sin(x / 700 + 0.6) + 12 * Math.sin(x / 233);
+                ridge += 'L' + x + ' ' + ry.toFixed(1) + ' ';
+            }
+            ridge += 'L' + CANVAS_W + ' ' + TRAIL_H + ' Z';
+
+            var ticks = '';
+            var y0 = parseInt(items[0].date.split('-')[0], 10);
+            var y1 = parseInt(items[items.length - 1].date.split('-')[0], 10) + 1;
+            for (var yr = y0; yr <= y1; yr++) {
+                var tx = xForMonth(yr * 12).toFixed(1);
+                ticks += '<line class="trail-gridline" x1="' + tx + '" y1="36" x2="' + tx + '" y2="' + (TRAIL_H - 16) + '"/>';
+            }
+
+            svg.setAttribute('viewBox', '0 0 ' + CANVAS_W + ' ' + TRAIL_H);
+            svg.setAttribute('width', CANVAS_W);
+            svg.setAttribute('height', TRAIL_H);
+            svg.innerHTML =
+                '<path class="trail-ridge" d="' + ridge + '"/>' +
+                ticks +
+                '<path class="trail-route-shadow" d="' + d + '"/>' +
+                '<path class="trail-route" d="' + d + '"/>' +
+                renderSpans() +
+                '<path class="trail-route-dash" d="' + d + '"/>';
+        }
+
+        // The span is the route itself, recoloured, so it follows every curve. Drawn
+        // under the dashes so it still reads as the same road.
+        function renderSpans() {
+            var byId = {};
+            items.forEach(function (it) { byId[it.id] = it; });
+
+            return SPANS.map(function (s) {
+                var x0 = byId[s.from].x, x1, open = s.to === 'present';
+                if (open)            { x1 = CANVAS_W - 70; }
+                else if (byId[s.to]) { x1 = byId[s.to].x; }
+                else                 { x1 = xForMonth(months(s.to)); }
+
+                var seg = '', x;
+                for (x = x0; x < x1; x += 4) {
+                    seg += (x === x0 ? 'M' : 'L') + x.toFixed(1) + ' ' + pathY(x).toFixed(1) + ' ';
+                }
+                seg += 'L' + x1.toFixed(1) + ' ' + pathY(x1).toFixed(1);
+
+                var cls = 'trail-span--' + s.brand;
+                // Each open span gets its own arrowhead so it can share the span's color.
+                var arrowId = 'spanArrow-' + s.brand;
+                var arrow = open
+                    ? '<defs><marker id="' + arrowId + '" viewBox="0 0 10 10" refX="2" refY="5"' +
+                        ' markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" orient="auto">' +
+                        '<path class="trail-span-arrow ' + cls + '" d="M0 0 10 5 0 10z"/></marker></defs>'
+                    : '';
+                return arrow +
+                    '<path class="trail-span ' + cls + '"' + (open ? ' marker-end="url(#' + arrowId + ')"' : '') +
+                        ' d="' + seg + '"/>';
+            }).join('');
+        }
+
+        function renderYears() {
+            var html = '';
+            var y0 = parseInt(items[0].date.split('-')[0], 10);
+            var y1 = parseInt(items[items.length - 1].date.split('-')[0], 10) + 1;
+            for (var yr = y0; yr <= y1; yr++) {
+                var x = xForMonth(yr * 12);
+                if (x < 40 || x > CANVAS_W - 40) { continue; }   // would be clipped at the edge
+                html += '<span class="trail-year" style="left:' + x.toFixed(1) + 'px">' + yr + '</span>';
+            }
+            yearsEl.innerHTML = html;
+        }
+
+        /* ================= render: markers ================= */
+        function renderMarkers() {
+            var html = '';
+            items.forEach(function (it) {
+                if (it.minor) {
+                    // Not a button: nothing to open. Plain text so it still reads aloud.
+                    html +=
+                        '<div class="wp-minor" data-tags="' + it.tags.join(' ') + '"' +
+                            ' style="left:' + it.x.toFixed(1) + 'px; top:' + it.y.toFixed(1) + 'px">' +
+                            '<span class="wp-minor-dot" aria-hidden="true"></span>' +
+                            '<span class="wp-minor-note">' + it.note + '</span>' +
+                        '</div>';
+                    return;
+                }
+                var cls = 'wp wp--' + it.type + (it.above ? ' wp--above' : ' wp--below');
+                if (isFilled(it)) { cls += ' wp--filled'; }
+                if (it.approx)  { cls += ' wp--approx'; }
+                if (it.current) { cls += ' wp--current'; }
+                html +=
+                    '<button type="button" class="' + cls + '" id="m-' + it.id + '"' +
+                        ' data-id="' + it.id + '" data-index="' + it.index + '"' +
+                        ' data-tags="' + it.tags.join(' ') + '"' +
+                        ' style="left:' + it.x.toFixed(1) + 'px; top:' + it.y.toFixed(1) + 'px"' +
+                        ' aria-label="' + it.title + ', ' + whenLabel(it) + '. Open details.">' +
+                        '<span class="wp-dot">' +
+                            '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[it.type] || ICONS.work) + '</svg>' +
+                        '</span>' +
+                        '<span class="wp-flag">' +
+                            '<span class="wp-flag-date">' + whenLabel(it) + '</span>' +
+                            '<span class="wp-flag-title">' + it.title + '</span>' +
+                            (it.org ? '<span class="wp-flag-org">' + it.org + '</span>' : '') +
+                            (it.note ? '<span class="wp-flag-note">' + it.note + '</span>' : '') +
+                        '</span>' +
+                    '</button>';
+            });
+            markersEl.innerHTML = html;
+        }
+
+        /* ================= render: polaroid placeholders =================
+           All photos live in one fixed lane below the path, centred as a group under
+           their marker. Because labels are always above the path, the two can't meet. */
+        function renderMedia() {
+            var html = '';
+            items.forEach(function (it) {
+                if (!it.media) { return; }
+                var n = it.media.length;
+                var span = n * POLA_W + (n - 1) * 10;
+                var start = it.x - span / 2;
+                it.media.forEach(function (m, j) {
+                    var left = start + j * (POLA_W + 10);
+                    var tilt = ((it.index + j) % 2 ? 1 : -1) * (2 + ((it.index + j) % 3));
+                    html +=
+                        '<figure class="pl' + mediaClass(m) + '" data-tags="' + it.tags.join(' ') + '"' +
+                            ' data-index="' + it.index + '"' +
+                            ' style="left:' + left.toFixed(1) + 'px; top:' + (POLA_TOP + (j % 2) * 8) + 'px;' +
+                            ' --tilt:' + tilt + 'deg">' +
+                            '<span class="pl-tape"></span>' +
+                            '<span class="pl-frame">' + mediaInner(m) + '</span>' +
+                            // Placeholders already say what the photo should be, and a logo
+                            // says who it is; a caption underneath would just repeat it.
+                            ((m.src || m.svg) && m.label && !m.logo ? '<figcaption>' + m.label + '</figcaption>' : '') +
+                        '</figure>';
+                });
+            });
+            mediaEl.innerHTML = html;
+        }
+
+        /* ================= layout ================= */
+        function layout() {
+            canvas.style.width = CANVAS_W + 'px';
+            canvas.style.setProperty('--trail-h', TRAIL_H + 'px');
+            renderSvg();
+            renderYears();
+            renderMedia();
+            renderMarkers();
+            syncMinimap();
+        }
+
+        /* ================= drawer ================= */
+        /* The panel is always there. openIndex === -1 means it's showing the
+           "start here" card; otherwise it's showing that stop. */
+        var openIndex = -1;
+        var DRAWER_PEEK = 260;   // px of the docked panel to bring on screen when it opens
+
+        // Index of the next stop the arrows can land on from `from`, or -1 if none.
+        function neighbour(from, delta) {
+            for (var n = from + delta; n >= 0 && n < items.length; n += delta) {
+                if (isNavigable(items[n])) { return n; }
+            }
+            return -1;
+        }
+
+        function syncDrawerControls() {
+            var stops = items.filter(isNavigable);
+            $('wpPrev').disabled = neighbour(openIndex, -1) < 0;
+            $('wpNext').disabled = neighbour(openIndex, 1) < 0;
+            $('wpCount').textContent = openIndex < 0
+                ? stops.length + ' stops'
+                : 'Stop ' + (stops.indexOf(items[openIndex]) + 1) + ' of ' + stops.length;
+            $('wpDrawerClose').hidden = openIndex < 0;   // nothing to close on the intro card
+        }
+
+        function markActive(id) {
+            Array.prototype.forEach.call(markersEl.children, function (b) {
+                b.classList.toggle('is-active', !!id && b.dataset.id === id);
+            });
+        }
+
+        function showIntro(returnFocus) {
+            var was = openIndex;
+            openIndex = -1;
+            drawerInner.innerHTML =
+                '<p class="wp-drawer-kicker"><span class="wp-drawer-type">Start here</span></p>' +
+                '<div class="wp-drawer-body">' +
+                    '<h3 id="wpDrawerTitle">Drill down to learn more</h3>' +
+                    '<p>Click any node or photo in the timeline above to learn a little bit more about ' +
+                    'the story behind it.</p>' +
+                '</div>' +
+                '<div class="wp-drawer-actions">' +
+                    '<button type="button" class="wp-drawer-step" data-go="first">Start at the beginning &rarr;</button>' +
+                    '<button type="button" class="wp-drawer-step" data-go="today">Jump to today &rarr;</button>' +
+                '</div>';
+            markActive(null);
+            syncDrawerControls();
+            if (returnFocus && was >= 0) {
+                var btn = document.getElementById('m-' + items[was].id);
+                if (btn && btn.offsetParent !== null) { btn.focus(); }
+            }
+        }
+
+        function openWaypoint(idx, focusDrawer) {
+            var it = items[idx];
+            if (!it) { return; }
+            var src = source.querySelector('#' + it.id);
+            var fromIntro = openIndex < 0;
+            openIndex = idx;
+
+            drawerInner.innerHTML =
+                '<p class="wp-drawer-kicker">' +
+                    '<span class="wp-drawer-type">' + (TYPE_LABEL[it.type] || '') + '</span>' +
+                    '<span class="wp-drawer-date">' + whenLabel(it) + '</span>' +
+                '</p>' +
+                '<div class="wp-drawer-body">' + (src ? src.innerHTML : '<p>No details yet.</p>') + '</div>' +
+                skillsHtml(it);
+
+            var h = drawerInner.querySelector('h3');
+            if (h) { h.id = 'wpDrawerTitle'; }
+
+            // Whatever opened it, slide the trail so this stop sits in the middle.
+            centerOn(idx, true);
+            markActive(it.id);
+            syncDrawerControls();
+
+            // On a short window the panel can sit below the fold. Scroll only far enough
+            // to bring its heading into view, keeping the trail on screen; and only when
+            // leaving the intro card, so stepping with the arrows doesn't jolt the page.
+            if (fromIntro) {
+                var peek = drawer.getBoundingClientRect().top + DRAWER_PEEK - window.innerHeight;
+                if (peek > 0) { window.scrollBy({ top: peek, behavior: reduceMotion ? 'auto' : 'smooth' }); }
+            }
+
+            if (focusDrawer) { $('wpDrawerClose').focus(); }
+        }
+
+        // Clicking the stop that's already open goes back to the intro card.
+        function toggleWaypoint(idx) {
+            if (idx === openIndex) { showIntro(false); }
+            else { openWaypoint(idx, false); }
+        }
+
+        function centerOn(idx, smooth) {
+            var it = items[idx];
+            if (!it) { return; }
+            stopCoast();     // don't let momentum fight a deliberate jump
+            viewport.scrollTo({
+                left: Math.max(0, it.x - viewport.clientWidth / 2),
+                behavior: (smooth && !reduceMotion) ? 'smooth' : 'auto'
+            });
+        }
+
+        function step(delta) {
+            var next = neighbour(openIndex, delta);   // from the intro card, → is the first stop
+            if (next >= 0) { openWaypoint(next, false); }
+        }
+
+        function todayIndex() {
+            var idx = items.length - 1;
+            for (var k = 0; k < items.length; k++) { if (items[k].current) { idx = k; } }
+            return idx;
+        }
+
+        $('wpDrawerClose').addEventListener('click', function () { showIntro(true); });
+        $('wpPrev').addEventListener('click', function () { step(-1); });
+        $('wpNext').addEventListener('click', function () { step(1); });
+
+        drawerInner.addEventListener('click', function (e) {
+            var go = e.target.closest('[data-go]');
+            if (!go) { return; }
+            if (go.dataset.go === 'first') { step(1); }
+            else { openWaypoint(todayIndex(), false); }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && openIndex >= 0) { showIntro(true); }
+        });
+
+        /* ================= filters ================= */
+        var active = { work: true };
+
+        // Can Earlier/Later and the arrow keys land here? Minor notes have nothing to open.
+        function isNavigable(it) {
+            return !it.minor && it.tags.some(function (t) { return active[t]; });
+        }
+
+        function applyFilters() {
+            var apply = function (el) {
+                var tags = (el.dataset.tags || '').split(' ');
+                var on = tags.some(function (t) { return active[t]; });
+                el.classList.toggle('is-dimmed', !on);
+            };
+            Array.prototype.forEach.call(markersEl.children, apply);
+            Array.prototype.forEach.call(mediaEl.children, apply);
+            if (vertEl) { Array.prototype.forEach.call(vertEl.children, apply); }
+        }
+
+        Array.prototype.forEach.call(document.querySelectorAll('.trail-chip'), function (chip) {
+            chip.setAttribute('aria-pressed', 'true');
+            chip.addEventListener('click', function () {
+                var tag = chip.dataset.tag;
+                active[tag] = !active[tag];
+                chip.classList.toggle('is-on', active[tag]);
+                chip.setAttribute('aria-pressed', String(active[tag]));
+                applyFilters();
+            });
+        });
+
+        /* ================= marker interaction ================= */
+        markersEl.addEventListener('click', function (e) {
+            var btn = e.target.closest('.wp');
+            if (!btn || dragMoved) { return; }
+            toggleWaypoint(parseInt(btn.dataset.index, 10));
+        });
+
+        // A polaroid opens the same callout as its marker. Mouse-only shortcut: the
+        // marker stays the keyboard/screen-reader route, so the photos keep aria-hidden.
+        mediaEl.addEventListener('click', function (e) {
+            var fig = e.target.closest('.pl');
+            if (!fig || dragMoved) { return; }
+            toggleWaypoint(parseInt(fig.dataset.index, 10));
+        });
+
+        markersEl.addEventListener('keydown', function (e) {
+            var btn = e.target.closest('.wp');
+            if (!btn) { return; }
+            var idx = parseInt(btn.dataset.index, 10);
+            var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+            if (!d) { return; }
+            e.preventDefault();
+            var n = idx + d;
+            while (n >= 0 && n < items.length && !isNavigable(items[n])) { n += d; }
+            var target = document.getElementById('m-' + (items[n] || {}).id);
+            if (target) { centerOn(n, true); target.focus(); }
+        });
+
+        /* ================= pan: drag with momentum ================= */
+        var dragging = false, dragMoved = false, startX = 0, startScroll = 0;
+        var velocity = 0;          // px per millisecond, positive = pointer moving right
+        var lastX = 0, lastT = 0;
+        var coastId = null;
+
+        var FRICTION  = 0.996;     // per millisecond; ~0.94 per 60fps frame
+        var MIN_SPEED = 0.02;      // px/ms below which the coast is over
+        var MAX_SPEED = 2.5;       // px/ms; caps a throw at roughly 600px of coasting
+
+        function stopCoast() {
+            if (coastId !== null) { window.cancelAnimationFrame(coastId); coastId = null; }
+            velocity = 0;
+        }
+
+        // Let go mid-drag and the trail keeps rolling, slowing under friction — the same
+        // feel as flicking a physical map across a table.
+        function startCoast() {
+            var last = window.performance.now();
+            coastId = window.requestAnimationFrame(function frame(now) {
+                var dt = Math.min(now - last, 32);   // clamp so a dropped frame can't lurch
+                last = now;
+                // Compare against the browser's own clamped result rather than a
+                // precomputed max: hovering scales markers up, which quietly changes
+                // the scrollable width mid-coast.
+                var before = viewport.scrollLeft;
+                viewport.scrollLeft -= velocity * dt;
+                if (viewport.scrollLeft === before) { stopCoast(); return; }   // hit an edge
+                velocity *= Math.pow(FRICTION, dt);
+                if (Math.abs(velocity) < MIN_SPEED) { stopCoast(); return; }
+                coastId = window.requestAnimationFrame(frame);
+            });
+        }
+
+        viewport.addEventListener('pointerdown', function (e) {
+            // Touch and pen already pan natively (and with momentum) via overflow-x.
+            // Hijacking them here would double the movement.
+            if (e.button !== 0 || e.pointerType !== 'mouse') { return; }
+            stopCoast();                       // grabbing again catches the moving trail
+            dragging = true; dragMoved = false;
+            startX = e.clientX; startScroll = viewport.scrollLeft;
+            lastX = e.clientX; lastT = window.performance.now();
+            viewport.classList.add('is-grabbing');
+        });
+
+        window.addEventListener('pointermove', function (e) {
+            if (!dragging) { return; }
+            var dx = e.clientX - startX;
+            if (Math.abs(dx) > 4) { dragMoved = true; }
+            viewport.scrollLeft = startScroll - dx;
+
+            var now = window.performance.now();
+            var dt = now - lastT;
+            if (dt > 0) {
+                // Smoothed so one jittery sample can't dominate the release velocity.
+                velocity = velocity * 0.7 + ((e.clientX - lastX) / dt) * 0.3;
+                lastX = e.clientX;
+                lastT = now;
+            }
+        });
+
+        window.addEventListener('pointerup', function () {
+            if (!dragging) { return; }
+            dragging = false;
+            viewport.classList.remove('is-grabbing');
+            window.setTimeout(function () { dragMoved = false; }, 0);
+
+            // A pause before releasing means "stop here", not "throw it".
+            var stale = window.performance.now() - lastT > 90;
+            // Cap the throw so a very fast flick can't send the trail into orbit.
+            velocity = Math.max(-MAX_SPEED, Math.min(MAX_SPEED, velocity));
+            if (!reduceMotion && !stale && Math.abs(velocity) > MIN_SPEED) { startCoast(); }
+            else { velocity = 0; }
+        });
+
+        /* No wheel handler on purpose. Vertical scrolling belongs to the page; the trail
+           travels by drag, by a horizontal trackpad swipe, or by shift+wheel — all of
+           which the browser gives us for free from overflow-x on the viewport. */
+
+        viewport.addEventListener('keydown', function (e) {
+            if (e.target !== viewport) { return; }
+            stopCoast();
+            var jump = viewport.clientWidth * 0.7;
+            if (e.key === 'ArrowRight') { viewport.scrollLeft += jump; e.preventDefault(); }
+            if (e.key === 'ArrowLeft')  { viewport.scrollLeft -= jump; e.preventDefault(); }
+            if (e.key === 'Home')       { viewport.scrollLeft = 0; e.preventDefault(); }
+            if (e.key === 'End')        { viewport.scrollLeft = viewport.scrollWidth; e.preventDefault(); }
+        });
+
+        /* ================= parallax + minimap ================= */
+        var layers = document.querySelectorAll('.trail-layer');
+
+        function onScroll() {
+            var s = viewport.scrollLeft;
+            if (!reduceMotion) {
+                // Shift the painted background, not the box. A transform here would count
+                // toward the canvas's scrollable overflow, so panning right would widen the
+                // scroll area, which would shift the layer further right, and so on — a
+                // feedback loop that added hundreds of px of empty space past the trail.
+                Array.prototype.forEach.call(layers, function (l) {
+                    l.style.backgroundPositionX = (s * parseFloat(l.dataset.depth)) + 'px';
+                });
+            }
+            syncMinimap();
+        }
+        viewport.addEventListener('scroll', onScroll, { passive: true });
+
+        function syncMinimap() {
+            var scale = minimap.clientWidth / CANVAS_W;
+            mmWindow.style.width = Math.max(24, viewport.clientWidth * scale) + 'px';
+            mmWindow.style.left  = (viewport.scrollLeft * scale) + 'px';
+        }
+
+        function mmJump(clientX) {
+            var r = minimap.getBoundingClientRect();
+            var frac = Math.min(1, Math.max(0, (clientX - r.left) / r.width));
+            viewport.scrollLeft = frac * CANVAS_W - viewport.clientWidth / 2;
+        }
+        var mmDrag = false;
+        minimap.addEventListener('pointerdown', function (e) { stopCoast(); mmDrag = true; mmJump(e.clientX); });
+        window.addEventListener('pointermove', function (e) { if (mmDrag) { mmJump(e.clientX); } });
+        window.addEventListener('pointerup', function () { mmDrag = false; });
+
+        /* ================= vertical (mobile) version ================= */
+        function renderVertical() {
+            var html = '';
+            items.forEach(function (it) {
+                if (it.minor) {
+                    html +=
+                        '<div class="vwp vwp--minor" data-tags="' + it.tags.join(' ') + '">' +
+                            '<span class="vwp-minor-dot" aria-hidden="true"></span>' +
+                            '<p class="vwp-minor-note">' + it.note + '</p>' +
+                        '</div>';
+                    return;
+                }
+                var src = source.querySelector('#' + it.id);
+                html +=
+                    '<article class="vwp vwp--' + it.type + (isFilled(it) ? ' vwp--filled' : '') +
+                        (it.approx ? ' vwp--approx' : '') +
+                        (it.current ? ' vwp--current' : '') + '" data-tags="' + it.tags.join(' ') + '">' +
+                        '<span class="vwp-dot"><svg viewBox="0 0 24 24" aria-hidden="true">' +
+                            (ICONS[it.type] || ICONS.work) + '</svg></span>' +
+                        '<p class="vwp-date">' + whenLabel(it) +
+                            ' <span class="vwp-type">' + (TYPE_LABEL[it.type] || '') + '</span></p>' +
+                        '<h3 class="vwp-title">' + it.title + '</h3>' +
+                        (it.org ? '<p class="vwp-org">' + it.org + '</p>' : '') +
+                        (it.note ? '<p class="vwp-note">' + it.note + '</p>' : '') +
+                        (it.media ? it.media.map(function (m) {
+                            return '<figure class="pl pl--inline' + mediaClass(m) + '">' +
+                                '<span class="pl-frame">' + mediaInner(m) + '</span>' +
+                                (m.svg && m.label ? '<figcaption>' + m.label + '</figcaption>' : '') +
+                                '</figure>';
+                        }).join('') : '') +
+                        '<div class="vwp-body">' + (src ? src.innerHTML : '') + '</div>' +
+                        skillsHtml(it) +
+                    '</article>';
+            });
+            vertEl.innerHTML = html;
+            // The vertical version shows its prose inline, so drop the duplicated heading.
+            Array.prototype.forEach.call(vertEl.querySelectorAll('.vwp-body h3'), function (h) { h.remove(); });
+        }
+
+        /* ================= jump to today ================= */
+        var jumpBtn = $('trailJump');
+        if (jumpBtn) {
+            jumpBtn.addEventListener('click', function () {
+                var idx = todayIndex();
+                if (MOBILE_Q.matches) {
+                    var el = vertEl.children[idx];
+                    if (el) { el.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' }); }
+                } else {
+                    openWaypoint(idx, false);
+                }
+            });
+        }
+
+        /* ================= boot ================= */
+        layout();
+        renderVertical();
+        applyFilters();
+        viewport.scrollLeft = items[0].x - START_X;   // skip the empty lead-in road
+        onScroll();
+        showIntro(false);
+
+        var resizeTimer;
+        window.addEventListener('resize', function () {
+            window.clearTimeout(resizeTimer);
+            resizeTimer = window.setTimeout(syncMinimap, 120);
+        });
+
+        // Deep links: /resume/#wp-hpe opens that waypoint.
+        function fromHash() {
+            var id = window.location.hash.replace('#', '');
+            if (!id) { return; }
+            for (var k = 0; k < items.length; k++) {
+                if (items[k].id === id) {
+                    if (!MOBILE_Q.matches) { openWaypoint(k, true); }
+                    else { var el = vertEl.children[k]; if (el) { el.scrollIntoView(); } }
+                    return;
+                }
+            }
+        }
+        fromHash();
+        window.addEventListener('hashchange', fromHash);
+    })();
+    </script>
 </body>
 </html>
